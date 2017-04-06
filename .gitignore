@@ -1,1 +1,9 @@
 .ipynb_checkpoints/
+*class
+node_modules/
+hooks/
+plugins/
+android/
+*.pyc
+webapp/venv/
+webapp/db.sqlite3
