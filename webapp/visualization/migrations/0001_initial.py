@@ -48,8 +48,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cpq',
             fields=[
-                ('cpq_id', models.CharField(max_length=15, primary_key=True, serialize=False)),
-                ('created_date', models.DateField()),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('cpq_id', models.CharField(max_length=15)),
+                ('created_date', models.DateTimeField()),
                 ('product_group', models.CharField(max_length=50)),
                 ('x36_mrc_list', models.FloatField(blank=True, null=True)),
                 ('x36_nrr_list', models.FloatField(blank=True, null=True)),
@@ -71,11 +72,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Opportunity',
             fields=[
-                ('opportunity_id', models.CharField(max_length=15, primary_key=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('opportunity_id', models.CharField(max_length=15)),
                 ('stage_name', models.CharField(max_length=50)),
                 ('is_closed', models.BooleanField()),
                 ('is_won', models.BooleanField()),
-                ('created_date', models.DateField()),
+                ('created_date', models.DateTimeField()),
                 ('term_in_months', models.IntegerField(blank=True, null=True)),
                 ('service', models.CharField(blank=True, max_length=50, null=True)),
                 ('opportunity_type', models.CharField(blank=True, max_length=50, null=True)),
@@ -89,7 +91,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('service_id', models.CharField(max_length=15, primary_key=True, serialize=False)),
                 ('total_mrr', models.FloatField(blank=True, null=True)),
-                ('next_mrc', models.FloatField(blank=True, null=True)),
+                ('netx_mrc', models.FloatField(blank=True, null=True)),
                 ('product_group', models.CharField(max_length=50)),
                 ('status', models.CharField(max_length=20)),
                 ('building_id', models.CharField(blank=True, max_length=15, null=True)),

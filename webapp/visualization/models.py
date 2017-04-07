@@ -45,9 +45,9 @@ class Site(models.Model):
 		return self.site_id
 
 class Cpq(models.Model):
-	cpq_id = models.CharField( max_length=15, primary_key=True )
+	cpq_id = models.CharField( max_length=15 )
 	account = models.ForeignKey( Account, null=True, blank=True )
-	created_date = models.DateField()
+	created_date = models.DateTimeField()
 	product_group = models.CharField(max_length=50)
 	x36_mrc_list = models.FloatField( null=True, blank=True )
 	x36_nrr_list = models.FloatField( null=True, blank=True )
@@ -58,12 +58,12 @@ class Cpq(models.Model):
 		return self.cpq_id
 
 class Opportunity(models.Model):
-	opportunity_id = models.CharField( max_length=15, primary_key=True )
+	opportunity_id = models.CharField( max_length=15 )
 	account = models.ForeignKey( Account, null=True, blank=True )
 	stage_name = models.CharField(max_length=50)
 	is_closed = models.BooleanField()
 	is_won = models.BooleanField()
-	created_date = models.DateField()
+	created_date = models.DateTimeField()
 	term_in_months = models.IntegerField( null=True, blank=True )
 	service = models.CharField( max_length=50, null=True, blank=True )
 	opportunity_type = models.CharField( max_length=50, null=True, blank=True )
@@ -77,7 +77,7 @@ class Service(models.Model):
 	service_id = models.CharField( max_length=15, primary_key=True )
 	account = models.ForeignKey( Account, null=True, blank=True )
 	total_mrr = models.FloatField( null=True, blank=True )
-	next_mrc = models.FloatField( null=True, blank=True )
+	netx_mrc = models.FloatField( null=True, blank=True )
 	product_group = models.CharField(max_length=50)
 	status = models.CharField(max_length=20)
 	building_id = models.CharField( max_length=15, null=True, blank=True )
