@@ -68,6 +68,8 @@
 				d3.select("#tooltip").html(toolTip(d.n, data[d.id]))  
 					.style("left", (d3.event.pageX) + "px")     
 					.style("top", (d3.event.pageY - 28) + "px");
+				d3.select( this )
+                            .style( 'cursor', 'pointer' );
 			}
 		}
 		
