@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>Project 1: Zayo Opportunities</title>
+
+    <!--Include CSS-->
+    <link href="interaction.css" rel="stylesheet">
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Theme CSS -->
+    <!-- Theme From: https://startbootstrap.com/template-overviews/freelancer/ -->
+    <link href="freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    <!--Include JavaScript Files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <script src="uStates.js"></script> <!-- creates uStates. -->
+</head>
+<body>
+	<!-- Navigation Bar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#">Project 1: Insights in Zayo Data</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#partOne">Part 1</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#partTwo">Part 2</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#partThree">Part 3 &amp; 4</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#partFive">Part 5</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+	<div id="tooltip"></div><!-- div to hold tooltip. -->
+	<div class='container'>
+		<div class="row">
+			<h2>Profit Across States</h2>
+            <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+        </div>
+		<div class="row">
+			<div class="col-md-12">
+				<table id="profitTable" class="display"  width="100%"  ></table>
+			</div>
+	    </div>
+	
+	
+	
+	<script>
+
+		function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
+			return "<h4>"+n+"</h4><table>"+
+			"<tr><td>Total Profit</td><td>"+(d.totalProfit)+"</td></tr>"+
+			"<tr><td>Number of Buildings</td><td>"+(d.buildings)+"</td></tr>"+
+			//"<tr><td>Min IBU</td><td>"+(d.high)+"</td></tr>"+
+			"</table>";
+		}
+
+		var nums = d3.interpolateNumber(0, 1);
+
+		var stateData ={};
+
+	// Load in my states data!
+	
+	d3.csv("processedData/profit_by_state.csv", function(data) {
+		color = d3.scaleLinear().domain([
+			d3.min(data, function(d) {
+				return parseFloat(d['Total_Profit']);
+			} ) - 1,
+			d3.max(data, function(d) {
+				return parseFloat(d['Total_Profit']);
+			} ) + 1]) 
+		.interpolate(d3.interpolateHcl)
+		.range([d3.rgb("#66ff33"), d3.rgb('#006600')]);
+		
+
+		// Loop through each state data value in the .csv file
+		for (var i = 0; i < data.length; i++) {
+
+			// Grab State Name
+			stateData[data[i].State]={
+				totalProfit: data[i].Total_Profit,
+				buildings: data[i].Buildings,
+				color: color(data[i].Total_Profit)
+			}
+			if ( i === data.length-1){
+				uStates.draw("#statesvg", stateData, tooltipHtml, populateDataTable);
+				d3.select(self.frameElement).style("height", "600px"); 
+			}
+			//var dataState = data[i].state;
+
+			
+		}
+	} );
+
+	var dataTable = null
+	function populateDataTable( state ){
+		dataTableCSV = []
+		columns = []
+		d3.csv("processedData/profits.csv", function(data) {
+			var headerNames = d3.keys(data[0]);
+			for( var i in headerNames ){
+				obj = { title: headerNames[i] };
+				if ( headerNames[i] == 'Latitude' || headerNames[i] == 'Longitude' || headerNames[i] == 'State' ){
+					obj['visible'] = false;
+				}
+				columns.push( obj )
+			}
+
+			for (var i = 0; i < data.length; i++) {
+				if ( data[i].State === state ){
+					var array = $.map(data[i], function(value, index) {
+						return [value];
+					});
+					dataTableCSV.push( array );
+				}
+				if ( i === data.length-1){
+					if (dataTable){
+						dataTable.clear();
+    					dataTable.rows.add(dataTableCSV);
+    					dataTable.draw();	
+					}
+					else{
+						dataTable = $('#profitTable').DataTable( {
+							data: dataTableCSV,
+							columns: columns
+						} );
+					}
+					
+				}	
+			}
+			
+		} ); 
+	}
+</script>
+
+</body>
