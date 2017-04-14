@@ -225,7 +225,7 @@ profits = pd.concat([co_buildings_latlong, tx_buildings_latlong, ga_buildings_la
 
 # In[192]:
 
-profits.to_csv('profits.csv')
+profits.to_csv('processedData/profits.csv')
 
 
 # ### Identify the total number of buildings for each state and write that to a csv
@@ -253,7 +253,7 @@ buildings_ga = len(GA_profit)
 import csv
 vals = [['CO', co_sum, buildings_co], ['TX', tx_sum, buildings_tx], ['GA', ga_sum, buildings_ga]]
 
-with open('profit_by_state.csv','wb') as f:
+with open('processedData/profit_by_state.csv','wb') as f:
     w = csv.writer(f)
     w.writerow(['State','Total Profit', 'Number of Buildings'])
     for v in vals:
