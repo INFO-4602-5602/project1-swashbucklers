@@ -10,10 +10,12 @@
     <!-- Theme From: https://startbootstrap.com/template-overviews/freelancer/ -->
     <link href="freelancer.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <!-- reference to Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link rel="stylesheet" href="leaflet.awesome-markers.css">
 
     <!--Include JavaScript Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,6 +24,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
     <script src="uStates.js"></script> <!-- creates uStates. -->
+    <script src="https://use.fontawesome.com/f78ead1096.js"></script>
+    <!-- reference to Leaflet JavaScript -->
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<script src="leaflet.awesome-markers.js"></script>
+
+	<link rel="stylesheet" href="MarkerCluster.css" />
+	<link rel="stylesheet" href="MarkerCluster.Default.css" />
+	<script src="leaflet.markercluster-src.js"></script>
 </head>
 <body>
 	<!-- Navigation Bar -->
@@ -42,10 +52,10 @@
                         <a href="#"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#partOne">Part 1</a>
+                        <a href="#partOne">Profit</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#partTwo">Part 2</a>
+                        <a href="#partTwo">Buildings</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#partThree">Part 3 &amp; 4</a>
@@ -61,7 +71,7 @@
     </nav>
 	<div id="tooltip"></div><!-- div to hold tooltip. -->
 	<div class='container'>
-		<div class="row">
+		<div id="partOne" class="row col-md-offset-1" >
 			<h2>Profit Across States</h2>
             <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
         </div>
@@ -69,6 +79,10 @@
 			<div id="tableDiv" class="col-md-12">
 				<table id="profitTable" class="display"  width="100%"  ></table>
 			</div>
+	    </div>
+	    <div id="partTwo" class="row col-md-offset-1">
+	    	<h2>Building Across USA</h2>
+	    	<div id="map"></div>
 	    </div>
 	</div>
 	
@@ -162,6 +176,58 @@
 			
 		} ); 
 	}
+
+	var map = L.map('map', {
+		preferCanvas: true
+	}).setView([36.264, -94.579], 5);
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+	var redMarker = L.AwesomeMarkers.icon({
+		prefix: 'fa',
+    	icon: 'money',
+    	markerColor: 'blue',
+    	iconColor: 'black'
+  	});
+  	var yellowMarker = L.AwesomeMarkers.icon({
+    	prefix: 'fa',
+    	icon: 'wrench',
+    	markerColor: 'blue',
+    	iconColor: 'black'
+  	});
+  	var greenMarker = L.AwesomeMarkers.icon({
+    	prefix: 'fa',
+    	icon: 'building-o',
+    	markerColor: 'blue',
+    	iconColor: 'black'
+  	});
+
+  	var markers = L.markerClusterGroup();
+	var markerList = [];
+
+  	d3.csv("data/ZayoHackathonData_Buildings.csv", function(data) {
+  		for( var i = 0; i<data.length; i++ ){
+	  			var obj = data[i];
+	  			var marker;
+	  			if( obj['Latitude'] !== '' && obj['Longitude'] !== ''){
+		  			if( obj['On Zayo Network Status'] === 'Not on Zayo Network' ){
+		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: redMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+		  			}
+		  			if( obj['On Zayo Network Status'] === 'On Zayo Network' ){
+		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: greenMarker}).bindPopup("Network Proximity: On Network");
+		  			}
+		  			if( obj['On Zayo Network Status'] === 'Build in Progress' ){
+		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: yellowMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+		  			}
+		  			markerList.push(marker);
+  				}
+  				if ( i === data.length-1){
+  					markers.addLayers(markerList);
+					map.addLayer(markers);
+  				}
+  		}
+  	} );
+
 </script>
 
 </body>
