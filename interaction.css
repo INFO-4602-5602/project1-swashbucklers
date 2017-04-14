@@ -33,6 +33,7 @@
 }
 #tooltip table{
 	table-layout:fixed;
+	color:white;
 }
 #tooltip tr td{
 	padding:0;
