@@ -66,10 +66,11 @@
             <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
         </div>
 		<div class="row">
-			<div class="col-md-12">
+			<div id="tableDiv" class="col-md-12">
 				<table id="profitTable" class="display"  width="100%"  ></table>
 			</div>
 	    </div>
+	</div>
 	
 	
 	
@@ -128,7 +129,7 @@
 			var headerNames = d3.keys(data[0]);
 			for( var i in headerNames ){
 				obj = { title: headerNames[i] };
-				if ( headerNames[i] == 'Latitude' || headerNames[i] == 'Longitude' || headerNames[i] == 'State' ){
+				if ( headerNames[i] == 'Latitude' || headerNames[i] == 'Longitude' || headerNames[i] == 'State' || headerNames[i] == ''){
 					obj['visible'] = false;
 				}
 				columns.push( obj )
@@ -153,6 +154,8 @@
 							columns: columns
 						} );
 					}
+
+					$('html, body').animate({scrollTop: $("#tableDiv").offset().top}, 2000);
 					
 				}	
 			}
