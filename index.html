@@ -65,7 +65,7 @@
 						<a href="#partThree">Portfolio</a>
 					</li>
 					<li class="page-scroll">
-						<a href="#partFive">Part 5</a>
+						<a href="#partFour">Insights</a>
 					</li>
 				</ul>
 			</div>
@@ -88,11 +88,29 @@
 			<h2>Building Across USA</h2>
 			<div id="map"></div>
 		</div>
-		<div id="partThree" class="row">
-			<div class="col-md-offset-1">
-				<h2>Zayo's Portfolio</h2>
-			</div>
+		<div id="partThree" class="row col-md-offset-1">
+			<h2>Zayo's Portfolio</h2>
 			<div id="treeMap"></div>
+		</div>
+		<div id="partFour" class="row col-md-offset-1">
+			<h2> Revenue Based Insights on Customer</h2>
+			<div id="barchart">
+			</div>
+		</div>
+		<div class="row">
+			<div id="tableDiv_potential_accounts_buildings_info_tbrr" class="col-md-12 datatablebar">
+				<table id="potential_accounts_buildings_info_tbrr" class="display"  width="100%"  ></table>
+			</div>
+		</div>
+		<div class="row">
+			<div id="tableDiv_zero_revenue_accounts_wo" class="col-md-12 datatablebar">
+				<table id="zero_revenue_accounts_wo" class="display"  width="100%"  ></table>
+			</div>
+		</div>
+		<div class="row">
+			<div id="tableDiv_high_revenue_accounts_wo_on_net" class="col-md-12 datatablebar">
+				<table id="high_revenue_accounts_wo_on_net" class="display"  width="100%"  ></table>
+			</div>
 		</div>
 	</div>
 	
@@ -273,7 +291,7 @@
   					}
   				}
   				
-  			
+
   				
   				industryP.value = Math.round(industryVal);
   				points.push(industryP);
@@ -308,6 +326,156 @@
   		});
   	});
 
-  </script>
 
-</body>
+  	// Bar chart
+  	var margin = {
+            top: 20,
+            right: 20,
+            bottom: 30,
+            left: 40
+        };
+
+    var width = 600;
+    var height = 300;
+  	d3.csv("processedData/row_counts.csv", function(data) {
+  			var datatablebar = {};
+            // converting data to number values (for good axes)
+            data.forEach(function(d) {
+            	d.filename = d.filename;
+            	d.count = +d.count;
+            });
+
+            var svg = d3.select("#barchart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // setting up scales, domains, ranges and axes
+            var x = d3.scaleBand();
+            var y = d3.scaleLinear();
+
+            x.domain(data.map(function(d, i) {
+            	datatablebar[d.filename] = null;
+            	return d.filename;
+            })).rangeRound([0, width]).padding(0.1);
+
+            y.domain([0, d3.max(data, function(d) {
+            	return d.count;
+            })]).range([height, 0]);
+
+            var xAxis = d3.axisBottom(x);
+
+            var yAxis = d3.axisLeft(y)
+            .ticks(15);
+
+            var xAxisG = svg.append('g')
+            .attr('class', 'x axis')
+            .attr('transform', 'translate(0, ' + height + ')')
+            .call(xAxis);
+
+            var yAxisG = svg.append('g')
+            .attr('class', 'y axis')
+            .call(yAxis);
+
+            yAxisG.append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".5em")
+            .style("text-anchor", "end")
+            .text("x");
+
+            // drawing the rectangles on the barchart
+            svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+                // .style("fill", c20)
+                .style("fill", function(d) {
+                	return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
+                })
+                .attr("class", "bar")
+                .attr("x", function(d, i) {
+                	return x(d.filename);
+                })
+                .attr("y", function(d) {
+                	return y(d.count);
+                })
+                .attr("width", x.bandwidth())
+                .attr("height", function(d) {
+                	return height - y(d.count);
+                })
+                // adding interactivity to the bars
+                .on("mouseover", function() {
+                	d3.select(this).style("fill", "red")
+                            .style( 'cursor', 'pointer' );
+                })
+                .on("mouseout", function(d) {
+                	d3.select(this).style("fill", function(d) {
+                		return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
+                	})
+                .on("click", function(d){
+                	$(".datatablebar").hide();
+                	var dataTableCSV = [];
+					var columns = [];
+					d3.csv("processedData/"+d.filename+".csv", function(data) {
+						var headerNames = d3.keys(data[0]);
+						for( var i in headerNames ){
+							obj = { title: headerNames[i] };
+							columns.push( obj )
+						}
+
+						for (var i = 0; i < data.length; i++) {
+							
+							var array = $.map(data[i], function(value, index) {
+								return [value];
+							});
+							dataTableCSV.push( array );
+							
+							if ( i === data.length-1){
+								if (datatablebar[d.filename]){
+								//	dataTable.clear();
+								//	dataTable.rows.add(dataTableCSV);
+								//	dataTable.draw();	
+								}
+								else{
+									datatablebar[d.filename] = $('#'+d.filename).DataTable( {
+										data: dataTableCSV,
+										columns: columns
+									} );
+								}
+								$('#tableDiv_'+d.filename).show();
+								$('html, body').animate({scrollTop: $('#tableDiv_'+d.filename).offset().top}, 2000);
+						
+							}	
+						}		
+                	});
+                })
+            });
+
+            // displaying the value of the bar at its top edge
+            svg.selectAll(".bartext")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .text(function(d) {
+            	return d.count;
+            })
+            .attr("x", function(d, i) {
+            	return x(d.filename) + x.bandwidth() / 2;
+            })
+            .attr("y", function(d) {
+            	return y(d.count) + 14;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "white")
+            .attr("text-anchor", "middle");
+        });
+
+        </script>
+
+    </body>
