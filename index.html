@@ -75,24 +75,29 @@
 	</nav>
 	<div id="tooltip"></div><!-- div to hold tooltip. -->
 	<div class='container'>
-		<div id="partOne" class="row col-md-offset-1" >
+		<div id="partOne" class="row" >
 			<h2>Profit Across States</h2>
-			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+			<div class="col-md-10">
+				<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+			</div>
+			<div id=key class="col-md-2">
+				Test Key
+			</div>
 		</div>
 		<div class="row">
 			<div id="tableDiv" class="col-md-12">
 				<table id="profitTable" class="display"  width="100%"  ></table>
 			</div>
 		</div>
-		<div id="partTwo" class="row col-md-offset-1">
+		<div id="partTwo" class="row">
 			<h2>Building Across USA</h2>
 			<div id="map"></div>
 		</div>
-		<div id="partThree" class="row col-md-offset-1">
+		<div id="partThree" class="row">
 			<h2>Zayo's Portfolio</h2>
 			<div id="treeMap"></div>
 		</div>
-		<div id="partFour" class="row col-md-offset-1">
+		<div id="partFour" class="row">
 			<h2> Revenue Based Insights on Customer</h2>
 			<div id="barchart">
 			</div>
@@ -388,7 +393,7 @@
             .text("x");
 
             // drawing the rectangles on the barchart
-            svg.selectAll("rect")
+            svg.selectAll(".bar")
             .data(data)
             .enter()
             .append("rect")
@@ -415,9 +420,10 @@
                 .on("mouseout", function(d) {
                 	d3.select(this).style("fill", function(d) {
                 		return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
-                	})
+                	});
+                })
                 .on("click", function(d){
-                	$(".datatablebar").hide();
+                	console.log("here1")
                 	var dataTableCSV = [];
 					var columns = [];
 					d3.csv("processedData/"+d.filename+".csv", function(data) {
@@ -435,7 +441,10 @@
 							dataTableCSV.push( array );
 							
 							if ( i === data.length-1){
+								$(".datatablebar").hide();
+								$('#tableDiv_'+d.filename).show();
 								if (datatablebar[d.filename]){
+									console.log("here")
 								//	dataTable.clear();
 								//	dataTable.rows.add(dataTableCSV);
 								//	dataTable.draw();	
@@ -446,14 +455,14 @@
 										columns: columns
 									} );
 								}
-								$('#tableDiv_'+d.filename).show();
+								
 								$('html, body').animate({scrollTop: $('#tableDiv_'+d.filename).offset().top}, 2000);
 						
 							}	
 						}		
                 	});
-                })
-            });
+                });
+            
 
             // displaying the value of the bar at its top edge
             svg.selectAll(".bartext")
