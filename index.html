@@ -1,33 +1,37 @@
 <html>
 <head>
-    <title>Project 1: Zayo Opportunities</title>
+	<title>Project 1: Zayo Opportunities</title>
 
-    <!--Include CSS-->
-    <link href="interaction.css" rel="stylesheet">
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Theme CSS -->
-    <!-- Theme From: https://startbootstrap.com/template-overviews/freelancer/ -->
-    <link href="freelancer.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
-    <!-- reference to Leaflet CSS -->
+	<!--Include CSS-->
+	<link href="interaction.css" rel="stylesheet">
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Theme CSS -->
+	<!-- Theme From: https://startbootstrap.com/template-overviews/freelancer/ -->
+	<link href="freelancer.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+	<!-- reference to Leaflet CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 	<link rel="stylesheet" href="leaflet.awesome-markers.css">
 
-    <!--Include JavaScript Files-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
-    <script src="uStates.js"></script> <!-- creates uStates. -->
-    <script src="https://use.fontawesome.com/f78ead1096.js"></script>
-    <!-- reference to Leaflet JavaScript -->
+	<!--Include JavaScript Files-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+	<script src="uStates.js"></script> <!-- creates uStates. -->
+	<script src="https://use.fontawesome.com/f78ead1096.js"></script>
+	<!-- reference to Leaflet JavaScript -->
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script src="leaflet.awesome-markers.js"></script>
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+	<script src="https://code.highcharts.com/modules/treemap.js"></script>
 
 	<link rel="stylesheet" href="MarkerCluster.css" />
 	<link rel="stylesheet" href="MarkerCluster.Default.css" />
@@ -35,55 +39,61 @@
 </head>
 <body>
 	<!-- Navigation Bar -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#">Project 1: Insights in Zayo Data</a>
-            </div>
+	<nav id="mainNav" class="navbar navbar-default navbar-custom">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="#">Project 1: Insights in Zayo Data</a>
+			</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#partOne">Profit</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#partTwo">Buildings</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#partThree">Part 3 &amp; 4</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#partFive">Part 5</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden">
+						<a href="#"></a>
+					</li>
+					<li class="page-scroll">
+						<a href="#partOne">Profit</a>
+					</li>
+					<li class="page-scroll">
+						<a href="#partTwo">Buildings</a>
+					</li>
+					<li class="page-scroll">
+						<a href="#partThree">Portfolio</a>
+					</li>
+					<li class="page-scroll">
+						<a href="#partFive">Part 5</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 	<div id="tooltip"></div><!-- div to hold tooltip. -->
 	<div class='container'>
 		<div id="partOne" class="row col-md-offset-1" >
 			<h2>Profit Across States</h2>
-            <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
-        </div>
+			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+		</div>
 		<div class="row">
 			<div id="tableDiv" class="col-md-12">
 				<table id="profitTable" class="display"  width="100%"  ></table>
 			</div>
-	    </div>
-	    <div id="partTwo" class="row col-md-offset-1">
-	    	<h2>Building Across USA</h2>
-	    	<div id="map"></div>
-	    </div>
+		</div>
+		<div id="partTwo" class="row col-md-offset-1">
+			<h2>Building Across USA</h2>
+			<div id="map"></div>
+		</div>
+		<div id="partThree" class="row">
+			<div class="col-md-offset-1">
+				<h2>Zayo's Portfolio</h2>
+			</div>
+			<div id="treeMap"></div>
+		</div>
 	</div>
 	
 	
@@ -160,8 +170,8 @@
 				if ( i === data.length-1){
 					if (dataTable){
 						dataTable.clear();
-    					dataTable.rows.add(dataTableCSV);
-    					dataTable.draw();	
+						dataTable.rows.add(dataTableCSV);
+						dataTable.draw();	
 					}
 					else{
 						dataTable = $('#profitTable').DataTable( {
@@ -183,52 +193,121 @@
 	}).setView([36.264, -94.579], 5);
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-		}).addTo(map);
+	}).addTo(map);
 	var redMarker = L.AwesomeMarkers.icon({
 		prefix: 'fa',
-    	icon: 'money',
-    	markerColor: 'blue',
-    	iconColor: 'black'
-  	});
-  	var yellowMarker = L.AwesomeMarkers.icon({
-    	prefix: 'fa',
-    	icon: 'wrench',
-    	markerColor: 'blue',
-    	iconColor: 'black'
-  	});
-  	var greenMarker = L.AwesomeMarkers.icon({
-    	prefix: 'fa',
-    	icon: 'building-o',
-    	markerColor: 'blue',
-    	iconColor: 'black'
-  	});
+		icon: 'money',
+		markerColor: 'blue',
+		iconColor: 'black'
+	});
+	var yellowMarker = L.AwesomeMarkers.icon({
+		prefix: 'fa',
+		icon: 'wrench',
+		markerColor: 'blue',
+		iconColor: 'black'
+	});
+	var greenMarker = L.AwesomeMarkers.icon({
+		prefix: 'fa',
+		icon: 'building-o',
+		markerColor: 'blue',
+		iconColor: 'black'
+	});
 
-  	var markers = L.markerClusterGroup();
+	var markers = L.markerClusterGroup();
 	var markerList = [];
 
-  	d3.csv("data/ZayoHackathonData_Buildings.csv", function(data) {
-  		for( var i = 0; i<data.length; i++ ){
-	  			var obj = data[i];
-	  			var marker;
-	  			if( obj['Latitude'] !== '' && obj['Longitude'] !== ''){
-		  			if( obj['On Zayo Network Status'] === 'Not on Zayo Network' ){
-		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: redMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
-		  			}
-		  			if( obj['On Zayo Network Status'] === 'On Zayo Network' ){
-		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: greenMarker}).bindPopup("Network Proximity: On Network");
-		  			}
-		  			if( obj['On Zayo Network Status'] === 'Build in Progress' ){
-		  				marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: yellowMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
-		  			}
-		  			markerList.push(marker);
-  				}
-  				if ( i === data.length-1){
-  					markers.addLayers(markerList);
-					map.addLayer(markers);
-  				}
-  		}
-  	} );
+	d3.csv("data/ZayoHackathonData_Buildings.csv", function(data) {
+		for( var i = 0; i<data.length; i++ ){
+			var obj = data[i];
+			var marker;
+			if( obj['Latitude'] !== '' && obj['Longitude'] !== ''){
+				if( obj['On Zayo Network Status'] === 'Not on Zayo Network' ){
+					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: redMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+				}
+				if( obj['On Zayo Network Status'] === 'On Zayo Network' ){
+					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: greenMarker}).bindPopup("Network Proximity: On Network");
+				}
+				if( obj['On Zayo Network Status'] === 'Build in Progress' ){
+					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: yellowMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+				}
+				markerList.push(marker);
+			}
+			if ( i === data.length-1){
+				markers.addLayers(markerList);
+				map.addLayer(markers);
+			}
+		}
+	} );
 
-</script>
+  	// Tree Map Code using highcharts
+  	d3.json("processedData/result.json", function(data){
+  		var points = [];
+  		var industriesP;
+  		var industryVal;
+  		var industryI = 0;
+  		var verticalP;
+  		var verticalI;
+  		var industry;
+  		var vertical;
+
+  		for (industry in data) {
+  			if (data.hasOwnProperty(industry)) {
+  				industryVal = 0;
+  				industryP = {
+  					id: 'id_' + industryI,
+  					name: industry,
+  					color: Highcharts.getOptions().colors[industryI]
+  				};
+  				verticalI = 0;
+  				for (vertical in data[industry]) {
+  					if (data[industry].hasOwnProperty(vertical)) {
+  						verticalP = {
+  							id: industryP.id + '_' + verticalI,
+  							name: vertical,
+  							parent: industryP.id,
+  							value: Math.round(+data[industry][vertical])
+  						};
+  						industryVal += verticalP.value;
+  						points.push(verticalP);
+  						verticalI = verticalI + 1;
+  					}
+  				}
+  				
+  			
+  				
+  				industryP.value = Math.round(industryVal);
+  				points.push(industryP);
+  				industryI = industryI + 1;
+  			}
+  		}
+  		Highcharts.chart('treeMap', {
+  			series: [{
+  				type: 'treemap',
+  				layoutAlgorithm: 'squarified',
+  				allowDrillToNode: true,
+  				animationLimit: 1000,
+  				dataLabels: {
+  					enabled: false
+  				},
+  				levelIsConstant: false,
+  				levels: [{
+  					level: 1,
+  					dataLabels: {
+  						enabled: true
+  					},
+  					borderWidth: 3
+  				}],
+  				data: points
+  			}],
+  			subtitle: {
+  				text: 'Click points to drill down'
+  			},
+  			title: {
+  				text: 'Net BRR to Zayo Across Industries & Verticals'
+  			}
+  		});
+  	});
+
+  </script>
 
 </body>

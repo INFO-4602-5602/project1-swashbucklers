@@ -49,6 +49,10 @@
     width: 960px;
     height:500px;
 }
+#treeMap {
+    min-width: 960px;
+    max-width: 960px;
+}
 tr.spaceUnder > td
 {
   padding-bottom: 4em;
