@@ -1,0 +1,567 @@
+<html>
+
+    <head>
+        <title>Project 0</title>
+        <link rel="stylesheet" type="text/css" href="project0.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--Put your D3 import statement between these two lines-->
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <!--Put your D3 import statement between these two lines-->
+    </head>
+
+    <body>
+      <h1>Vis</h1>
+        <div id="barchart">
+        </div>
+        <!-- <div id="partTwo">
+            <h1>Part Two: </h1>
+            <div id="barchartx">
+            </div>
+            <div id="barcharty">
+            </div>
+        </div>
+        <div id="partThree">
+            <h1>Part Three &amp; Four: </h1>
+            <div id="scatterplot">
+                <p id="scatterLabel"><i>No point selected</i></p>
+            </div>
+        </div>
+        <div id="partFive">
+            <h1>Part Five: </h1>
+            <div id="scatterplotSet">
+                <div id="anscombe_1" class="child_div_1"><b>anscombe_I.csv</b>
+                    <p id="scatterLabel_1"><i>No point selected</i></p>
+                </div>
+                <div id="anscombe_2" class="child_div_2"><b>anscombe_II.csv</b>
+                    <p id="scatterLabel_2"><i>No point selected</i></p>
+                </div>
+                <div id="anscombe_3" class="child_div_1"><b>anscombe_III.csv</b>
+                    <p id="scatterLabel_3"><i>No point selected</i></p>
+                </div>
+                <div id="anscombe_4" class="child_div_2"><b>anscombe_IV.csv</b>
+                    <p id="scatterLabel_4"><i>No point selected</i></p>
+                </div>
+            </div>
+        </div> -->
+        <script type="text/javascript">
+        // Put your part one code here ***********************
+        // var filesList = ["./data/anscombe_I.csv", "./data/anscombe_II.csv", "./data/anscombe_III.csv", "./data/anscombe_IV.csv"];
+
+        // iterating through each csv file and checking data
+        // filesList.forEach(function(f) {
+        //     d3.csv(f, function(data) {
+        //         checkDataset(data);
+        //     });
+        // });
+
+        // Leave this to test your data uploading. All data uploading should be above this line
+        // function checkDataset(dataset) {
+        //     if (dataset.length == 11)
+        //         $("#partOne").append("<p>data loaded correctly</p>");
+        //     else
+        //         $("#partOne").append("<p>data loaded incorrectly. Try using the debugger to help you find the bug!</p>");
+        // }
+
+        // Setting margins and dimensions for all SVGs to be drawn
+        var margin = {
+            top: 20,
+            right: 20,
+            bottom: 30,
+            left: 40
+        };
+
+        var width = 600;
+        var height = 300;
+
+        // var c20 = d3.scale.category20();
+
+        // Put your part two code here ***********************
+        d3.csv("row_counts.csv", function(data) {
+            // converting data to number values (for good axes)
+            data.forEach(function(d) {
+                d.filename = d.filename;
+                d.count = +d.count;
+            });
+
+            var svg = d3.select("#barchart")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // setting up scales, domains, ranges and axes
+            var x = d3.scale.ordinal();
+            var y = d3.scale.linear();
+
+            x.domain(data.map(function(d, i) {
+                return d.filename;
+            })).rangeRoundBands([0, width], .25);
+
+            y.domain([0, d3.max(data, function(d) {
+                return d.count;
+            })]).range([height, 0]);
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .ticks(15);
+
+            var xAxisG = svg.append('g')
+                .attr('class', 'x axis')
+                .attr('transform', 'translate(0, ' + height + ')')
+                .call(xAxis);
+
+            var yAxisG = svg.append('g')
+                .attr('class', 'y axis')
+                .call(yAxis);
+
+            yAxisG.append("text")
+                .attr("class", "label")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".5em")
+                .style("text-anchor", "end")
+                .text("x");
+
+            // drawing the rectangles on the barchart
+            svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                // .style("fill", c20)
+                .style("fill", function(d) {
+                    return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
+                })
+                .attr("class", "bar")
+                .attr("x", function(d, i) {
+                    return x(d.filename);
+                })
+                .attr("y", function(d) {
+                    return y(d.count);
+                })
+                .attr("width", x.rangeBand())
+                .attr("height", function(d) {
+                    return height - y(d.count);
+                })
+                // adding interactivity to the bars
+                .on("mouseover", function() {
+                    d3.select(this).style("fill", "red")
+                })
+                .on("mouseout", function(d) {
+                    d3.select(this).style("fill", function(d) {
+                        return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
+                    })
+                });
+
+            // displaying the value of the bar at its top edge
+            svg.selectAll(".bartext")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("class", "label")
+                .text(function(d) {
+                    return d.count;
+                })
+                .attr("x", function(d, i) {
+                    return x(i + 1) + x.rangeBand() / 2;
+                })
+                .attr("y", function(d) {
+                    return y(d.count) + 14;
+                })
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "12px")
+                .attr("fill", "white")
+                .attr("text-anchor", "middle");
+
+
+
+            // For bell Xs and Ys
+        //     var svg = d3.select("#barcharty")
+        //         .append("svg")
+        //         .attr("width", width + margin.left + margin.right)
+        //         .attr("height", height + margin.top + margin.bottom)
+        //         .append("g")
+        //         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        //
+        //     // setting up scales, domains, ranges and axes
+        //     var x = d3.scale.ordinal();
+        //     var y = d3.scale.linear();
+        //
+        //     x.domain(data.map(function(d, i) {
+        //         return i + 1;
+        //     })).rangeRoundBands([0, width], .25);
+        //
+        //     y.domain([0, d3.max(data, function(d) {
+        //         return d.x;
+        //     })]).range([height, 0]);
+        //
+        //     var xAxis = d3.svg.axis()
+        //         .scale(x)
+        //         .orient("bottom");
+        //
+        //     var yAxis = d3.svg.axis()
+        //         .scale(y)
+        //         .orient("left")
+        //         .ticks(15);
+        //
+        //     var xAxisG = svg.append('g')
+        //         .attr('class', 'x axis')
+        //         .attr('transform', 'translate(0, ' + height + ')')
+        //         .call(xAxis);
+        //
+        //     var yAxisG = svg.append('g')
+        //         .attr('class', 'y axis')
+        //         .call(yAxis);
+        //
+        //     yAxisG.append("text")
+        //         .attr("class", "label")
+        //         .attr("transform", "rotate(-90)")
+        //         .attr("y", 6)
+        //         .attr("dy", ".5em")
+        //         .style("text-anchor", "end")
+        //         .text("y");
+        //
+        //     // drawing the rectangles on the barchart
+        //     svg.selectAll("rect")
+        //         .data(data)
+        //         .enter()
+        //         .append("rect")
+        //         // .style("fill", c20)
+        //         .style("fill", function(d) {
+        //             return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //         })
+        //         .attr("class", "bar")
+        //         .attr("x", function(d, i) {
+        //             return x(i + 1);
+        //         })
+        //         .attr("y", function(d) {
+        //             return y(d.y);
+        //         })
+        //         .attr("width", x.rangeBand())
+        //         .attr("height", function(d) {
+        //             return height - y(d.y);
+        //         })
+        //         // adding interactivity to the bars
+        //         .on("mouseover", function() {
+        //             d3.select(this).style("fill", "red")
+        //         })
+        //         .on("mouseout", function(d) {
+        //             d3.select(this).style("fill", function(d) {
+        //                 return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //             })
+        //         });
+        //
+        //     // displaying the value of the bar at its top edge
+        //     svg.selectAll(".bartext")
+        //         .data(data)
+        //         .enter()
+        //         .append("text")
+        //         .attr("class", "label")
+        //         .text(function(d) {
+        //             return d.y;
+        //         })
+        //         .attr("x", function(d, i) {
+        //             return x(i + 1) + x.rangeBand() / 2;
+        //         })
+        //         .attr("y", function(d) {
+        //             return y(d.y) + 14;
+        //         })
+        //         .attr("font-family", "sans-serif")
+        //         .attr("font-size", "12px")
+        //         .attr("fill", "white")
+        //         .attr("text-anchor", "middle");
+        //
+        //
+        //     // Put your part three code here ***********************
+        //     var svg = d3.select("#scatterplot")
+        //         .append("svg")
+        //         .attr("width", width + margin.left + margin.right)
+        //         .attr("height", height + margin.top + margin.bottom)
+        //         .append("g")
+        //         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        //
+        //     // Writing tooltip definition to complete a "bell" task
+        //     var tooltip = d3.select("#scatterplot")
+        //         .append("div")
+        //         .style("position", "absolute")
+        //         .style("z-index", "10")
+        //         .style("visibility", "hidden")
+        //         .text("tooltip");
+        //
+        //     // Resetting scales, domains, ranges and axes for scatterplot
+        //     var x = d3.scale.linear();
+        //     var y = d3.scale.linear();
+        //
+        //     var xAxis = d3.svg.axis()
+        //         .scale(x)
+        //         .orient("bottom");
+        //
+        //     var yAxis = d3.svg.axis()
+        //         .scale(y)
+        //         .orient("left")
+        //         .ticks(15);
+        //
+        //     // lines 210 - 223 used to define line path
+        //     var lineData = create_data(data);
+        //     lineData.forEach(function(d) {
+        //         d.x = +d.x;
+        //         d.y = +d.y;
+        //         d.yhat = +d.yhat;
+        //     });
+        //
+        //     var line = d3.svg.line()
+        //         .x(function(d) {
+        //             return x(+d.x);
+        //         })
+        //         .y(function(d) {
+        //             return y(+d.yhat);
+        //         });
+        //
+        //     x.domain([0, d3.max(data, function(d) {
+        //         return d.x;
+        //     }) + 1]).range([0, width]);
+        //
+        //     y.domain([0, d3.max(data, function(d) {
+        //         return d.y;
+        //     }) + 1]).range([height, 0]);
+        //
+        //     var xAxisG = svg.append("g")
+        //         .attr("class", "x axis")
+        //         .attr("transform", "translate(0," + height + ")")
+        //         .call(xAxis);
+        //
+        //     xAxisG.append("text")
+        //         .attr("class", "label")
+        //         .attr("x", width)
+        //         .attr("y", -6)
+        //         .style("text-anchor", "end")
+        //         .text("x");
+        //
+        //     var yAxisG = svg.append("g")
+        //         .attr("class", "y axis")
+        //         .call(yAxis);
+        //
+        //     yAxisG.append("text")
+        //         .attr("class", "label")
+        //         .attr("transform", "rotate(-90)")
+        //         .attr("y", 6)
+        //         .attr("dy", ".5em")
+        //         .style("text-anchor", "end")
+        //         .text("y");
+        //
+        //     // Actually plotting the data points on the scatterplot
+        //     svg.selectAll(".dot")
+        //         .data(data)
+        //         .enter()
+        //         .append("circle")
+        //         .attr("class", "dot")
+        //         // .style("fill", c20)
+        //         .style("fill", function(d) {
+        //             return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //         })
+        //         // Making the radius of the dots a function of their x values
+        //         .attr("r", function(d) {
+        //             return d.x;
+        //         })
+        //         .attr("cx", function(d) {
+        //             return x(d.x);
+        //         })
+        //         .attr("cy", function(d) {
+        //             return y(d.y);
+        //         })
+        //
+        //     // part four code here ***********************
+        //     // adding interactivity to the dots
+        //     .on("click", function(d) {
+        //             showCoordinates(d.x, d.y);
+        //         })
+        //         // Bell: Tooltips
+        //         .on("mouseover", function(d) {
+        //             d3.select(this).style("fill", "red");
+        //             return tooltip.style("visibility", "visible").text(d.x + ", " + d.y)
+        //                 .style("font-family", "sans-serif");
+        //         })
+        //         .on("mousemove", function() {
+        //             return tooltip.style("top", (d3.event.pageY - 12) + "px")
+        //                 .style("left", (d3.event.pageX + 12) + "px");
+        //         })
+        //         .on("mouseout", function(d) {
+        //             d3.select(this).style("fill", function(d) {
+        //                 return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //             })
+        //             return tooltip.style("visibility", "hidden");
+        //         });
+        //
+        //     svg.append("path")
+        //         // .datum(lineData)
+        //         .attr("class", "line")
+        //         .attr("d", line(lineData))
+        //         .style("z-index", "10");
+        });
+        //
+        //
+        // // Put your part five code here ***********************
+        // // Doing the same thing as part three, just for all the datasets
+        // filesList.forEach(function(f, i) {
+        //     d3.csv(f, function(data) {
+        //         var x = d3.scale.linear();
+        //         var y = d3.scale.linear();
+        //
+        //         // var color = d3.scale.category10();
+        //
+        //         var svg = d3.select("#anscombe_" + (i + 1))
+        //             .append("svg")
+        //             .attr("width", width + margin.left + margin.right)
+        //             .attr("height", height + margin.top + margin.bottom)
+        //             .append("g")
+        //             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        //
+        //         var tooltip = d3.select("#anscombe_" + (i + 1))
+        //             .append("div")
+        //             .style("position", "absolute")
+        //             .style("z-index", "10")
+        //             .style("visibility", "hidden")
+        //             .text("tooltip");
+        //
+        //         x.domain([0, d3.max(data, function(d) {
+        //             return +d.x;
+        //         }) + 1]).range([0, width]);
+        //
+        //         y.domain([0, d3.max(data, function(d) {
+        //             return +d.y;
+        //         }) + 1]).range([height, 0]);
+        //
+        //         var xAxis = d3.svg.axis()
+        //             .scale(x)
+        //             .orient("bottom");
+        //
+        //         var yAxis = d3.svg.axis()
+        //             .scale(y)
+        //             .orient("left")
+        //             .ticks(15);
+        //
+        //         var xAxisG = svg.append("g")
+        //             .attr("class", "x axis")
+        //             .attr("transform", "translate(0," + height + ")")
+        //             .call(xAxis)
+        //
+        //         xAxisG.append("text")
+        //             .attr("class", "label")
+        //             .attr("x", width)
+        //             .attr("y", -6)
+        //             .style("text-anchor", "end")
+        //             .text("x");
+        //
+        //         var yAxisG = svg.append("g")
+        //             .attr("class", "y axis")
+        //             .call(yAxis)
+        //
+        //         yAxisG.append("text")
+        //             .attr("class", "label")
+        //             .attr("transform", "rotate(-90)")
+        //             .attr("y", 6)
+        //             .attr("dy", ".5em")
+        //             .style("text-anchor", "end")
+        //             .text("y")
+        //
+        //         svg.selectAll(".dot")
+        //             .data(data)
+        //             .enter()
+        //             .append("circle")
+        //             .attr("class", "dot")
+        //             .style("fill", function(d) {
+        //                 return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //             })
+        //             .attr("r", 3)
+        //             .attr("cx", function(d) {
+        //                 return x(d.x);
+        //             })
+        //             .attr("cy", function(d) {
+        //                 return y(d.y);
+        //             })
+        //             .on("click", function(d) {
+        //                 showCoordinates_indexed(d.x, d.y, i);
+        //             })
+        //             .on("mouseover", function(d) {
+        //                 d3.select(this).style("fill", "red").attr("r", 6);
+        //                 return tooltip.style("visibility", "visible")
+        //                     .text(d.x + ", " + d.y).style("font-family", "sans-serif");
+        //             })
+        //             .on("mousemove", function() {
+        //                 return tooltip.style("top", (d3.event.pageY - 12) + "px")
+        //                     .style("left", (d3.event.pageX + 12) + "px");
+        //             })
+        //             .on("mouseout", function(d) {
+        //                 d3.select(this).style("fill", function(d) {
+        //                     return "rgb(" + 0 + ", " + (d.x * 10) + ", " + (d.x * 10) + ")";
+        //                 }).attr("r", 3);
+        //                 return tooltip.style("visibility", "hidden");
+        //             });
+        //     });
+        // });
+        //
+        //
+        // function showCoordinates(x, y) {
+        //     $('#scatterLabel').html("(x, y) : " + "(" + x + ", " + y + ")")
+        // }
+        //
+        // function showCoordinates_indexed(x, y, i) {
+        //     $('#scatterLabel_' + (i + 1)).html("(x, y) : " + "(" + x + ", " + y + ")")
+        // }
+        //
+        // // code for this function taken from https://bl.ocks.org/ctufts/298bfe4b11989960eeeecc9394e9f118
+        // function create_data(data) {
+        //     var len = data.length;
+        //     var x_mean = y_mean = coeff1 = coeff2 = 0;
+        //
+        //
+        //     for (var i = 0; i < len; i++) {
+        //         x_mean += data[i].x
+        //         y_mean += data[i].y
+        //     }
+        //
+        //     // calculate mean x and y
+        //     x_mean /= len;
+        //     y_mean /= len;
+        //
+        //     // calculate coefficients
+        //     var xr = yr = 0;
+        //
+        //     for (i = 0; i < len; i++) {
+        //         xr = data[i].x - x_mean;
+        //         yr = data[i].y - y_mean;
+        //         coeff1 += xr * yr;
+        //         coeff2 += xr * xr;
+        //     }
+        //
+        //     var b1 = coeff1 / coeff2;
+        //     var b0 = y_mean - (b1 * x_mean);
+        //
+        //     // perform regression
+        //     yhat = [];
+        //
+        //     // fit line using coeffs
+        //     for (i = 0; i < len; i++) {
+        //         yhat.push(b0 + (data[i].x * b1));
+        //     }
+        //
+        //     var returnData = [];
+        //     for (i = 0; i < len; i++) {
+        //         returnData.push({
+        //             "yhat": yhat[i],
+        //             "y": data[i].y,
+        //             "x": data[i].x
+        //         })
+        //     }
+        //     // console.log(returnData);
+        //     return (returnData);
+        // }
+        </script>
+    </body>
+
+</html>
