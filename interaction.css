@@ -10,7 +10,7 @@
 	position: absolute;           
 	text-align: center;
 	padding: 20px;             
-	margin: 10px;
+	margin: 20px;
 	font: 12px sans-serif;        
 	background: lightsteelblue;   
 	border: 1px;      
@@ -36,11 +36,11 @@
 	color:white;
 }
 #tooltip tr td{
-	padding:0;
-	margin:0;
+	padding:2px;
+	margin:0px;
 }
 #tooltip tr td:nth-child(1){
-	width:50px;
+	width:90px;
 }
 #tooltip tr td:nth-child(2){
 	text-align:center;
@@ -48,4 +48,8 @@
 #map {
     width: 960px;
     height:500px;
+}
+tr.spaceUnder > td
+{
+  padding-bottom: 4em;
 }
