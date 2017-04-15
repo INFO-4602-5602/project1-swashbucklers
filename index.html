@@ -107,10 +107,10 @@
 	d3.csv("processedData/profit_by_state.csv", function(data) {
 		color = d3.scaleLinear().domain([
 			d3.min(data, function(d) {
-				return parseFloat(d['Total_Profit']);
+				return parseFloat(d['Total Profit']);
 			} ) - 1,
 			d3.max(data, function(d) {
-				return parseFloat(d['Total_Profit']);
+				return parseFloat(d['Total Profit']);
 			} ) + 1]) 
 		.interpolate(d3.interpolateHcl)
 		.range([d3.rgb("#66ff33"), d3.rgb('#006600')]);
@@ -121,9 +121,9 @@
 
 			// Grab State Name
 			stateData[data[i].State]={
-				totalProfit: data[i].Total_Profit,
-				buildings: data[i].Buildings,
-				color: color(data[i].Total_Profit)
+				totalProfit: data[i]['Total Profit'],
+				buildings: data[i]['Number of Buildings'],
+				color: color(data[i]['Total Profit'])
 			}
 			if ( i === data.length-1){
 				uStates.draw("#statesvg", stateData, tooltipHtml, populateDataTable);
