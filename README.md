@@ -1,6 +1,7 @@
 ### INSIGHTS INTO ZAYO'S NETWORK INFRASTRUCTURE
 
 #### Visualizations
+---
 We have attempted to visualize the data in the most intuitive way possible and present it in the form of a dashboard to keep it simple for an end-user.
 
 The dashboard boasts a total of 4 visualizations, each of which gives a unique perspective about the data that was provided to us by Zayo.
@@ -15,6 +16,7 @@ The dashboard boasts a total of 4 visualizations, each of which gives a unique p
 
 
 #### Design Process
+---
 The dashboard is a culmination of extensive pruning and analysis of the datasets provided to us. The CPQs and Opportunities datasets in particular seemed to have quite a lot of duplicated rows which came to light while we were trying to perform inner joins on the tables. When the number of rows in the merged table seemed off by a very large margin, it took a bit of manually screening the data to find that duplicate entries exist in the origin data files. The Accounts, Buildings, CPQs, Opportunities and Sites tables each gives us certain unique information (columns) about a couple of key columns that are common to the data files mentioned above. An example of this would be using the Building ID and Account ID columns in the Buildings and CPQs file to give us a clear picture about which accounts provide the best return on investment to Zayo. Performing an inner join on Account IDs of both files gave us a renewed perspective with which we could now see the total revenue across a particular state for all the buildings associated with 'on-network' Zayo accounts across the date.
 
 Given that we were to use at least 1 spatial and 1 non-spatial visualization, what immediately crossed our minds was using a map layout for the spatial visualization(s). This seemed to be the most intuitive way to display the information since the data is essentially about buildings spread across different cities and regions in 3 main hubs. Instead of using a heat-map, we decided to go with just one color but having different levels of brightness that would correspond to how much revenue each state generated for Zayo. And instead of cluttering the top-level view of the states with information related to the buildings in those states, we decided that it would be a lot cleaner and easier for a user to sift through a table, which is the most common way of representing numeric data. This led us to display a data-table containing information about all the buildings in a particular state once a user clicks on it.
@@ -23,6 +25,7 @@ As for non-spatial, we ended up developing 2 such visualizations (vis 3 and 4). 
 
 
 #### Each Contributor's Role
+---
 Naif **Alharthi**: Pruned and analyzed original data files to spot duplicate entries
 
 Aadish **Gupta**: Built the dashboard and visualizations from ground-up using Leaflet.js, D3.js and Highcharts.js
