@@ -75,7 +75,8 @@
 	</nav>
 	<!-- <div id="tooltip"></div><!-- div to hold tooltip. --> -->
 	<div class='container'>
-		<div id="partOne" class="row" >
+<<<<<<< HEAD
+		<div id="partOne" class="row col-md-offset-1" >
 			<h2 style="text-align: center;">Profit Across States</h2>
 			<div class="col-md-10" style="width: 100%;">
 				<svg width="960" height="600" id="statesvg" style="
@@ -85,6 +86,9 @@
 			<!-- <div id=key class="col-md-2">
 				Test Key
 			</div> -->
+		<!-- <div id="partOne" class="row col-md-offset-1" >
+			<h2>Profit Across States</h2>
+			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. --> -->
 		</div>
 		<div id="tooltip"></div>
 		<div class="row">
@@ -92,15 +96,16 @@
 				<table id="profitTable" class="display"  width="100%"  ></table>
 			</div>
 		</div>
-		<div id="partTwo" class="row">
+
+		<div id="partTwo" class="row col-md-offset-1">
 			<h2 style="text-align: center;">Building Across USA</h2>
 			<div id="map" style="margin: auto"></div>
 		</div>
-		<div id="partThree" class="row">
+		<div id="partThree" class="row col-md-offset-1">
 			<h2 style="text-align: center;">Zayo's Portfolio</h2>
 			<div id="treeMap" style="margin: auto"></div>
 		</div>
-		<div id="partFour" class="row">
+		<div id="partFour" class="row col-md-offset-1">
 			<h2 style="text-align: center;"> Revenue Based Insights on Customer</h2>
 			<div id="barchart">
 			</div>
@@ -128,7 +133,7 @@
 
 		function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
 			return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Total Profit</td><td>"+parseFloat(d.totalProfit).toFixed(2)+"</td></tr>"+
+			"<tr><td>Total Profit($)</td><td>"+parseFloat(d.totalProfit).toFixed(2)+"</td></tr>"+
 			"<tr><td style='line-height:10px;'></td><td></td></tr>"+
 			"<tr><td>Number of Buildings</td><td>"+(d.buildings)+"</td></tr>"+
 			//"<tr><td>Min IBU</td><td>"+(d.high)+"</td></tr>"+
