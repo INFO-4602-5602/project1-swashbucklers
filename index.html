@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>Project 1: Zayo Opportunities</title>
 
@@ -23,7 +24,8 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
-	<script src="uStates.js"></script> <!-- creates uStates. -->
+	<script src="uStates.js"></script>
+	<!-- creates uStates. -->
 	<script src="https://use.fontawesome.com/f78ead1096.js"></script>
 	<!-- reference to Leaflet JavaScript -->
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
@@ -37,6 +39,7 @@
 	<link rel="stylesheet" href="MarkerCluster.Default.css" />
 	<script src="leaflet.markercluster-src.js"></script>
 </head>
+
 <body>
 	<!-- Navigation Bar -->
 	<nav id="mainNav" class="navbar navbar-default navbar-custom">
@@ -75,24 +78,20 @@
 	</nav>
 	<!-- <div id="tooltip"></div><!-- div to hold tooltip. -->
 	<div class='container'>
-		<div id="partOne" class="row" >
+
+		<div id="partOne" class="row">
 			<h2 style="text-align: center;">Profit Across States</h2>
 			<div class="col-md-10" style="width: 100%;">
-				<svg width="960" height="600" id="statesvg" style="
-    display: block;
-    margin: auto;"></svg> <!-- svg to hold the map. -->
+				<!-- svg to hold the map. -->
+				<svg width="960" height="600" id="statesvg" style="display: block; margin: auto;">
+				</svg>
 			</div>
-			<!-- <div id=key class="col-md-2">
-				Test Key
-			</div> -->
-		<!-- <div id="partOne" class="row col-md-offset-1" >
-			<h2>Profit Across States</h2>
-			<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+
 		</div>
 		<div id="tooltip"></div>
 		<div class="row">
 			<div id="tableDiv" class="col-md-12">
-				<table id="profitTable" class="display"  width="100%"  ></table>
+				<table id="profitTable" class="display" width="100%"></table>
 			</div>
 		</div>
 
@@ -100,352 +99,355 @@
 			<h2 style="text-align: center;">Building Across USA</h2>
 			<div id="map" style="margin: auto"></div>
 		</div>
+
 		<div id="partThree" class="row ">
 			<h2 style="text-align: center;">Zayo's Portfolio</h2>
 			<div id="treeMap" style="margin: auto"></div>
 		</div>
+
 		<div id="partFour" class="row">
 			<h2 style="text-align: center;"> Revenue Based Insights on Customer</h2>
 			<div id="barchart">
 			</div>
 		</div>
+
 		<div class="row">
 			<div id="tableDiv_Untapped_Buildings_on_Current_Accounts_On_Net" class="col-md-12 datatablebar">
-				<table id="Untapped_Buildings_on_Current_Accounts_On_Net" class="display"  width="100%"  ></table>
+				<table id="Untapped_Buildings_on_Current_Accounts_On_Net" class="display" width="100%"></table>
 			</div>
 		</div>
+
 		<div class="row">
 			<div id="tableDiv_Opportunities_with_Potential_Accounts" class="col-md-12 datatablebar">
-				<table id="Opportunities_with_Potential_Accounts" class="display"  width="100%"  ></table>
+				<table id="Opportunities_with_Potential_Accounts" class="display" width="100%"></table>
 			</div>
 		</div>
+
 		<div class="row">
 			<div id="tableDiv_Opportunities_with_Current_High_Revenue_Accounts_On_Net" class="col-md-12 datatablebar">
-				<table id="Opportunities_with_Current_High_Revenue_Accounts_On_Net" class="display"  width="100%"  ></table>
+				<table id="Opportunities_with_Current_High_Revenue_Accounts_On_Net" class="display" width="100%"></table>
 			</div>
 		</div>
+
 	</div>
 
 
 
 	<script>
-
-		function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
-			return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Total Profit($)</td><td>"+parseFloat(d.totalProfit).toFixed(2)+"</td></tr>"+
-			"<tr><td style='line-height:10px;'></td><td></td></tr>"+
-			"<tr><td>Number of Buildings</td><td>"+(d.buildings)+"</td></tr>"+
-			//"<tr><td>Min IBU</td><td>"+(d.high)+"</td></tr>"+
-			"</table>";
+		function tooltipHtml(n, d) { /* function to create html content string in tooltip div. */
+			return "<h4>" + n + "</h4><table>" +
+				"<tr><td>Total Profit($)</td><td>" + parseFloat(d.totalProfit).toFixed(2) + "</td></tr>" +
+				"<tr><td style='line-height:10px;'></td><td></td></tr>" +
+				"<tr><td>Number of Buildings</td><td>" + (d.buildings) + "</td></tr>" +
+				"</table>";
 		}
 
 		var nums = d3.interpolateNumber(0, 1);
 
-		var stateData ={};
+		var stateData = {};
 
-	// Load in my states data!
-
-	d3.csv("processedData/profit_by_state.csv", function(data) {
-		color = d3.scaleLinear().domain([
-			d3.min(data, function(d) {
-				return parseFloat(d['Total Profit']);
-			} ) - 1,
-			d3.max(data, function(d) {
-				return parseFloat(d['Total Profit']);
-			} ) + 1])
-		.interpolate(d3.interpolateHcl)
-		.range([d3.rgb("#66ff33"), d3.rgb('#006600')]);
-
-
-		// Loop through each state data value in the .csv file
-		for (var i = 0; i < data.length; i++) {
-
-			// Grab State Name
-			stateData[data[i].State]={
-				totalProfit: data[i]['Total Profit'],
-				buildings: data[i]['Number of Buildings'],
-				color: color(data[i]['Total Profit'])
-			}
-			if ( i === data.length-1){
-				uStates.draw("#statesvg", stateData, tooltipHtml, populateDataTable);
-				d3.select(self.frameElement).style("height", "600px");
-			}
-			//var dataState = data[i].state;
+		// Load in my states data!
+		d3.csv("processedData/profit_by_state.csv", function(data) {
+			color = d3.scaleLinear().domain([
+					d3.min(data, function(d) {
+						return parseFloat(d['Total Profit']);
+					}) - 1,
+					d3.max(data, function(d) {
+						return parseFloat(d['Total Profit']);
+					}) + 1
+				])
+				.interpolate(d3.interpolateHcl)
+				.range([d3.rgb("#66ff33"), d3.rgb('#006600')]);
 
 
-		}
-	} );
-
-	var dataTable = null
-	function populateDataTable( state ){
-		dataTableCSV = []
-		columns = []
-		d3.csv("processedData/profits.csv", function(data) {
-			var headerNames = d3.keys(data[0]);
-			for( var i in headerNames ){
-				obj = { title: headerNames[i] };
-				if ( headerNames[i] == 'Latitude' || headerNames[i] == 'Longitude' || headerNames[i] == 'State' || headerNames[i] == ''){
-					obj['visible'] = false;
-				}
-				columns.push( obj )
-			}
-
+			// Loop through each state data value in the .csv file
 			for (var i = 0; i < data.length; i++) {
-				if ( data[i].State === state ){
-					var array = $.map(data[i], function(value, index) {
-						return [value];
-					});
-					dataTableCSV.push( array );
+
+				// Grab State Name
+				stateData[data[i].State] = {
+					totalProfit: data[i]['Total Profit'],
+					buildings: data[i]['Number of Buildings'],
+					color: color(data[i]['Total Profit'])
 				}
-				if ( i === data.length-1){
-					if (dataTable){
-						dataTable.clear();
-						dataTable.rows.add(dataTableCSV);
-						dataTable.draw();
+				if (i === data.length - 1) {
+					uStates.draw("#statesvg", stateData, tooltipHtml, populateDataTable);
+					d3.select(self.frameElement).style("height", "600px");
+				}
+			}
+		});
+
+		var dataTable = null
+
+		function populateDataTable(state) {
+			dataTableCSV = []
+			columns = []
+			d3.csv("processedData/profits.csv", function(data) {
+				var headerNames = d3.keys(data[0]);
+				for (var i in headerNames) {
+					obj = {
+						title: headerNames[i]
+					};
+					if (headerNames[i] == 'Latitude' || headerNames[i] == 'Longitude' || headerNames[i] == 'State' || headerNames[i] == '') {
+						obj['visible'] = false;
 					}
-					else{
-						dataTable = $('#profitTable').DataTable( {
-							data: dataTableCSV,
-							columns: columns
-						} );
-					}
-
-					$('html, body').animate({scrollTop: $("#tableDiv").offset().top}, 2000);
-
+					columns.push(obj)
 				}
-			}
 
-		} );
-	}
-
-	var map = L.map('map', {
-		preferCanvas: true
-	}).setView([36.264, -94.579], 5);
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-	var redMarker = L.AwesomeMarkers.icon({
-		prefix: 'fa',
-		icon: 'money',
-		markerColor: 'blue',
-		iconColor: 'black'
-	});
-	var yellowMarker = L.AwesomeMarkers.icon({
-		prefix: 'fa',
-		icon: 'wrench',
-		markerColor: 'blue',
-		iconColor: 'black'
-	});
-	var greenMarker = L.AwesomeMarkers.icon({
-		prefix: 'fa',
-		icon: 'building-o',
-		markerColor: 'blue',
-		iconColor: 'black'
-	});
-
-	var markers = L.markerClusterGroup();
-	var markerList = [];
-
-	d3.csv("data/ZayoHackathonData_Buildings.csv", function(data) {
-		for( var i = 0; i<data.length; i++ ){
-			var obj = data[i];
-			var marker;
-			if( obj['Latitude'] !== '' && obj['Longitude'] !== ''){
-				if( obj['On Zayo Network Status'] === 'Not on Zayo Network' ){
-					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: redMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
-				}
-				if( obj['On Zayo Network Status'] === 'On Zayo Network' ){
-					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: greenMarker}).bindPopup("Network Proximity: On Network");
-				}
-				if( obj['On Zayo Network Status'] === 'Build in Progress' ){
-					marker = L.marker([obj['Latitude'], obj['Longitude']], {icon: yellowMarker}).bindPopup("Network Proximity: " + obj['Network Proximity']);
-				}
-				markerList.push(marker);
-			}
-			if ( i === data.length-1){
-				markers.addLayers(markerList);
-				map.addLayer(markers);
-			}
-		}
-	} );
-
-  	// Tree Map Code using highcharts
-  	d3.json("processedData/result.json", function(data){
-  		var points = [];
-  		var industriesP;
-  		var industryVal;
-  		var industryI = 0;
-  		var verticalP;
-  		var verticalI;
-  		var industry;
-  		var vertical;
-
-  		for (industry in data) {
-  			if (data.hasOwnProperty(industry)) {
-  				industryVal = 0;
-  				industryP = {
-  					id: 'id_' + industryI,
-  					name: industry,
-  					color: Highcharts.getOptions().colors[industryI]
-  				};
-  				verticalI = 0;
-  				for (vertical in data[industry]) {
-  					if (data[industry].hasOwnProperty(vertical)) {
-  						verticalP = {
-  							id: industryP.id + '_' + verticalI,
-  							name: vertical,
-  							parent: industryP.id,
-  							value: Math.round(+data[industry][vertical])
-  						};
-  						industryVal += verticalP.value;
-  						points.push(verticalP);
-  						verticalI = verticalI + 1;
-  					}
-  				}
-
-
-
-  				industryP.value = Math.round(industryVal);
-  				points.push(industryP);
-  				industryI = industryI + 1;
-  			}
-  		}
-  		Highcharts.chart('treeMap', {
-  			series: [{
-  				type: 'treemap',
-  				layoutAlgorithm: 'squarified',
-  				allowDrillToNode: true,
-  				animationLimit: 1000,
-  				dataLabels: {
-  					enabled: false
-  				},
-  				levelIsConstant: false,
-  				levels: [{
-  					level: 1,
-  					dataLabels: {
-  						enabled: true
-  					},
-  					borderWidth: 3
-  				}],
-  				data: points
-  			}],
-  			subtitle: {
-  				text: 'Click points to drill down'
-  			},
-  			title: {
-  				text: 'Net BRR to Zayo Across Industries & Verticals'
-  			}
-  		});
-  	});
-
-
-  	// Bar chart
-  	var margin = {
-            top: 20,
-            right: 20,
-            bottom: 30,
-            left: 40
-        };
-
-    var width = 1000;
-    var height = 300;
-  	d3.csv("processedData/row_counts.csv", function(data) {
-  			var datatablebar = {};
-            // converting data to number values (for good axes)
-            data.forEach(function(d) {
-            	d.filename = d.filename;
-            	d.count = +d.count;
-            });
-
-						data.forEach(function(d) {
-							console.log(d.filename);
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].State === state) {
+						var array = $.map(data[i], function(value, index) {
+							return [value];
 						});
+						dataTableCSV.push(array);
+					}
+					if (i === data.length - 1) {
+						if (dataTable) {
+							dataTable.clear();
+							dataTable.rows.add(dataTableCSV);
+							dataTable.draw();
+						} else {
+							dataTable = $('#profitTable').DataTable({
+								data: dataTableCSV,
+								columns: columns
+							});
+						}
 
-            var svg = d3.select("#barchart")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-						.style("display", "block")
-						.style("margin", "auto")
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+						$('html, body').animate({
+							scrollTop: $("#tableDiv").offset().top
+						}, 2000);
 
-            // setting up scales, domains, ranges and axes
-            var x = d3.scaleBand();
-            var y = d3.scaleLinear();
+					}
+				}
 
-            x.domain(data.map(function(d, i) {
-            	datatablebar[d.filename] = null;
-            	return d.filename;
-            })).rangeRound([0, width]).padding(0.1);
+			});
+		}
 
-            y.domain([0, d3.max(data, function(d) {
-            	return d.count;
-            })]).range([height, 0]);
+		var map = L.map('map', {
+			preferCanvas: true
+		}).setView([36.264, -94.579], 5);
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+		var redMarker = L.AwesomeMarkers.icon({
+			prefix: 'fa',
+			icon: 'money',
+			markerColor: 'blue',
+			iconColor: 'black'
+		});
+		var yellowMarker = L.AwesomeMarkers.icon({
+			prefix: 'fa',
+			icon: 'wrench',
+			markerColor: 'blue',
+			iconColor: 'black'
+		});
+		var greenMarker = L.AwesomeMarkers.icon({
+			prefix: 'fa',
+			icon: 'building-o',
+			markerColor: 'blue',
+			iconColor: 'black'
+		});
 
-            var xAxis = d3.axisBottom(x);
+		var markers = L.markerClusterGroup();
+		var markerList = [];
 
-            var yAxis = d3.axisLeft(y)
-            .ticks(15);
+		d3.csv("data/ZayoHackathonData_Buildings.csv", function(data) {
+			for (var i = 0; i < data.length; i++) {
+				var obj = data[i];
+				var marker;
+				if (obj['Latitude'] !== '' && obj['Longitude'] !== '') {
+					if (obj['On Zayo Network Status'] === 'Not on Zayo Network') {
+						marker = L.marker([obj['Latitude'], obj['Longitude']], {
+							icon: redMarker
+						}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+					}
+					if (obj['On Zayo Network Status'] === 'On Zayo Network') {
+						marker = L.marker([obj['Latitude'], obj['Longitude']], {
+							icon: greenMarker
+						}).bindPopup("Network Proximity: On Network");
+					}
+					if (obj['On Zayo Network Status'] === 'Build in Progress') {
+						marker = L.marker([obj['Latitude'], obj['Longitude']], {
+							icon: yellowMarker
+						}).bindPopup("Network Proximity: " + obj['Network Proximity']);
+					}
+					markerList.push(marker);
+				}
+				if (i === data.length - 1) {
+					markers.addLayers(markerList);
+					map.addLayer(markers);
+				}
+			}
+		});
 
-            var xAxisG = svg.append('g')
-            .attr('class', 'x axis')
-            .attr('transform', 'translate(0, ' + height + ')')
-            .call(xAxis);
+		// Tree Map Code using highcharts
+		d3.json("processedData/result.json", function(data) {
+			var points = [];
+			var industriesP;
+			var industryVal;
+			var industryI = 0;
+			var verticalP;
+			var verticalI;
+			var industry;
+			var vertical;
 
-            var yAxisG = svg.append('g')
-            .attr('class', 'y axis')
-            .call(yAxis);
+			for (industry in data) {
+				if (data.hasOwnProperty(industry)) {
+					industryVal = 0;
+					industryP = {
+						id: 'id_' + industryI,
+						name: industry,
+						color: Highcharts.getOptions().colors[industryI]
+					};
+					verticalI = 0;
+					for (vertical in data[industry]) {
+						if (data[industry].hasOwnProperty(vertical)) {
+							verticalP = {
+								id: industryP.id + '_' + verticalI,
+								name: vertical,
+								parent: industryP.id,
+								value: Math.round(+data[industry][vertical])
+							};
+							industryVal += verticalP.value;
+							points.push(verticalP);
+							verticalI = verticalI + 1;
+						}
+					}
+					industryP.value = Math.round(industryVal);
+					points.push(industryP);
+					industryI = industryI + 1;
+				}
+			}
+			Highcharts.chart('treeMap', {
+				series: [{
+					type: 'treemap',
+					layoutAlgorithm: 'squarified',
+					allowDrillToNode: true,
+					animationLimit: 1000,
+					dataLabels: {
+						enabled: false
+					},
+					levelIsConstant: false,
+					levels: [{
+						level: 1,
+						dataLabels: {
+							enabled: true
+						},
+						borderWidth: 3
+					}],
+					data: points
+				}],
+				subtitle: {
+					text: 'Click points to drill down'
+				},
+				title: {
+					text: 'Net BRR to Zayo Across Industries & Verticals'
+				}
+			});
+		});
 
-            yAxisG.append("text")
-            .attr("class", "label")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".5em")
-            .style("text-anchor", "end")
-            .text("x");
 
-            // drawing the rectangles on the barchart
-            svg.selectAll(".bar")
-            .data(data)
-            .enter()
-            .append("rect")
-                // .style("fill", c20)
-								.style("fill", "#13AB71")
-                // .style("fill", function(d) {
-                // 	return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
-                // })
-                .attr("class", "bar")
-                .attr("x", function(d, i) {
-                	return x(d.filename);
-                })
-                .attr("y", function(d) {
-                	return y(d.count);
-                })
-                .attr("width", x.bandwidth())
-                .attr("height", function(d) {
-                	return height - y(d.count);
-                })
-                // adding interactivity to the bars
-                .on("mouseover", function() {
-                	d3.select(this).style("fill", "red")
-                            .style( 'cursor', 'pointer' );
-                })
-                .on("mouseout", function(d) {
-                	d3.select(this).style("fill", "#13AB71")
-									// .style("fill", function(d) {
-                	// 	return "rgb(" + 0 + ", " + (d.count * 10) + ", " + (d.count * 10) + ")";
-                	// });
-                })
-                .on("click", function(d){
-                	console.log("here1")
-                	var dataTableCSV = [];
+		// Bar chart
+		var margin = {
+			top: 20,
+			right: 20,
+			bottom: 30,
+			left: 40
+		};
+
+		var width = 1000;
+		var height = 300;
+		d3.csv("processedData/row_counts.csv", function(data) {
+			var datatablebar = {};
+			// converting data to number values (for good axes)
+			data.forEach(function(d) {
+				d.filename = d.filename;
+				d.count = +d.count;
+			});
+
+			data.forEach(function(d) {
+				console.log(d.filename);
+			});
+
+			var svg = d3.select("#barchart")
+				.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.style("display", "block")
+				.style("margin", "auto")
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			// setting up scales, domains, ranges and axes
+			var x = d3.scaleBand();
+			var y = d3.scaleLinear();
+
+			x.domain(data.map(function(d, i) {
+				datatablebar[d.filename] = null;
+				return d.filename;
+			})).rangeRound([0, width]).padding(0.1);
+
+			y.domain([0, d3.max(data, function(d) {
+				return d.count;
+			})]).range([height, 0]);
+
+			var xAxis = d3.axisBottom(x);
+
+			var yAxis = d3.axisLeft(y)
+				.ticks(15);
+
+			var xAxisG = svg.append('g')
+				.attr('class', 'x axis')
+				.attr('transform', 'translate(0, ' + height + ')')
+				.call(xAxis);
+
+			var yAxisG = svg.append('g')
+				.attr('class', 'y axis')
+				.call(yAxis);
+
+			yAxisG.append("text")
+				.attr("class", "label")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", ".5em")
+				.style("text-anchor", "end")
+				.text("x");
+
+			// drawing the rectangles on the barchart
+			svg.selectAll(".bar")
+				.data(data)
+				.enter()
+				.append("rect")
+				.style("fill", "#13AB71")
+				.attr("class", "bar")
+				.attr("x", function(d, i) {
+					return x(d.filename);
+				})
+				.attr("y", function(d) {
+					return y(d.count);
+				})
+				.attr("width", x.bandwidth())
+				.attr("height", function(d) {
+					return height - y(d.count);
+				})
+				// adding interactivity to the bars
+				.on("mouseover", function() {
+					d3.select(this).style("fill", "red")
+						.style('cursor', 'pointer');
+				})
+				.on("mouseout", function(d) {
+					d3.select(this).style("fill", "#13AB71");
+				})
+				.on("click", function(d) {
+					console.log("here1")
+					var dataTableCSV = [];
 					var columns = [];
-					d3.csv("processedData/"+d.filename+".csv", function(data) {
+					d3.csv("processedData/" + d.filename + ".csv", function(data) {
 						var headerNames = d3.keys(data[0]);
-						for( var i in headerNames ){
-							obj = { title: headerNames[i] };
-							columns.push( obj )
+						for (var i in headerNames) {
+							obj = {
+								title: headerNames[i]
+							};
+							columns.push(obj)
 						}
 
 						for (var i = 0; i < data.length; i++) {
@@ -453,60 +455,54 @@
 							var array = $.map(data[i], function(value, index) {
 								return [value];
 							});
-							dataTableCSV.push( array );
+							dataTableCSV.push(array);
 
-							if ( i === data.length-1){
+							if (i === data.length - 1) {
 								$(".datatablebar").hide();
-								$('#tableDiv_'+d.filename).show();
-								if (datatablebar[d.filename]){
+								$('#tableDiv_' + d.filename).show();
+								if (datatablebar[d.filename]) {
 									console.log("here")
-								//	dataTable.clear();
-								//	dataTable.rows.add(dataTableCSV);
-								//	dataTable.draw();
-								}
-								else{
-									datatablebar[d.filename] = $('#'+d.filename).DataTable( {
+								} else {
+									datatablebar[d.filename] = $('#' + d.filename).DataTable({
 										data: dataTableCSV,
 										columns: columns,
 										scrollX: true,
 										scrollCollapse: true,
-										// paging:         false,
-						        columnDefs: [
-						            { width: 200, targets: 0 }
-						        ],
-        						fixedColumns: true
-									} );
+										columnDefs: [{
+											width: 200,
+											targets: 0
+										}],
+										fixedColumns: true
+									});
 								}
-
-								$('html, body').animate({scrollTop: $('#tableDiv_'+d.filename).offset().top}, 2000);
-
+								$('html, body').animate({
+									scrollTop: $('#tableDiv_' + d.filename).offset().top
+								}, 2000);
 							}
 						}
-                	});
-                });
+					});
+				});
 
+			// displaying the value of the bar at its top edge
+			svg.selectAll(".bartext")
+				.data(data)
+				.enter()
+				.append("text")
+				.attr("class", "label")
+				.text(function(d) {
+					return d.count;
+				})
+				.attr("x", function(d, i) {
+					return x(d.filename) + x.bandwidth() / 2;
+				})
+				.attr("y", function(d) {
+					return y(d.count) - 5;
+				})
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "12px")
+				.attr("fill", "black")
+				.attr("text-anchor", "middle");
+		});
+	</script>
 
-            // displaying the value of the bar at its top edge
-            svg.selectAll(".bartext")
-            .data(data)
-            .enter()
-            .append("text")
-            .attr("class", "label")
-            .text(function(d) {
-            	return d.count;
-            })
-            .attr("x", function(d, i) {
-            	return x(d.filename) + x.bandwidth() / 2;
-            })
-            .attr("y", function(d) {
-            	return y(d.count) - 5;
-            })
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "12px")
-            .attr("fill", "black")
-            .attr("text-anchor", "middle");
-        });
-
-        </script>
-
-    </body>
+</body>
