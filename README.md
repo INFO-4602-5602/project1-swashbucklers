@@ -24,7 +24,11 @@ As for non-spatial, we ended up developing 2 such visualizations (vis 3 and 4). 
 
 #### Each Contributor's Role
 Naif **Alharthi**: Pruned and analyzed original data files to spot duplicate entries
+
 Aadish **Gupta**: Built the dashboard and visualizations from ground-up using Leaflet.js, D3.js and Highcharts.js
+
 Nehal **Kamat**: Pruned and analyzed data in Jupyter Notebooks using Python in order to create csv files to be used for visualization. Also co-wrote the README file along with Keerthi Pai.
+
 Sachin **Muralidhara**: Pruned and analyzed data in Jupyter Notebooks using Python in order to create csv files to be used for visualization.
+
 Keerthi **Pai**: Analyzed data using MySQL to provide valuable insights into what datasets to join. Also co-wrote the README with Nehal Kamat
