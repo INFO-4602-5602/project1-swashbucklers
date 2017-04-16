@@ -110,18 +110,18 @@
 			</div>
 		</div>
 		<div class="row">
-			<div id="tableDiv_potential_accounts_buildings_info_tbrr" class="col-md-12 datatablebar">
-				<table id="potential_accounts_buildings_info_tbrr" class="display"  width="100%"  ></table>
+			<div id="tableDiv_Untapped_Buildings_on_Current_Accounts_On_Net" class="col-md-12 datatablebar">
+				<table id="Untapped_Buildings_on_Current_Accounts_On_Net" class="display"  width="100%"  ></table>
 			</div>
 		</div>
 		<div class="row">
-			<div id="tableDiv_zero_revenue_accounts_wo" class="col-md-12 datatablebar">
-				<table id="zero_revenue_accounts_wo" class="display"  width="100%"  ></table>
+			<div id="tableDiv_Opportunities_with_Potential_Accounts" class="col-md-12 datatablebar">
+				<table id="Opportunities_with_Potential_Accounts" class="display"  width="100%"  ></table>
 			</div>
 		</div>
 		<div class="row">
-			<div id="tableDiv_high_revenue_accounts_wo_on_net" class="col-md-12 datatablebar">
-				<table id="high_revenue_accounts_wo_on_net" class="display"  width="100%"  ></table>
+			<div id="tableDiv_Opportunities_with_Current_High_Revenue_Accounts_On_Net" class="col-md-12 datatablebar">
+				<table id="Opportunities_with_Current_High_Revenue_Accounts_On_Net" class="display"  width="100%"  ></table>
 			</div>
 		</div>
 	</div>
@@ -356,6 +356,10 @@
             	d.filename = d.filename;
             	d.count = +d.count;
             });
+
+						data.forEach(function(d) {
+							console.log(d.filename);
+						});
 
             var svg = d3.select("#barchart")
             .append("svg")
