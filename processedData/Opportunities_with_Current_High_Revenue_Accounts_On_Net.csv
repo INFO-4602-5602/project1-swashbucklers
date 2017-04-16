@@ -1,31 +1,31 @@
-,Account ID,Industry,Vertical, Total BRR , AnnualRevenue ,NumberOfEmployees, DandB Revenue ,DandB Total Employees,On Zayo Network Status,Building ID
-2,Acct-000273,Telecommunications,Wireless,6084906.0," $248,747,365.62 ",397," $356,943,618.45 ",397,On Zayo Network,38
-5,Acct-000013,Telecommunications,National Carrier/ISP,5117529.0," $10,779,768,901.96 ",40000," $10,779,768,901.96 ",40000,On Zayo Network,74
-7,Acct-000036,Telecommunications,Wireless,5105015.0," $9,277,969,886.09 ",34518," $19,094,310,655.17 ",34518,On Zayo Network,13
-10,Acct-000025,Telecommunications,National Carrier/ISP,4234871.0," $6,248,394,000.00 ",10040," $7,587,138,000.00 ",12500,On Zayo Network,32
-12,Acct-000004,Telecommunications,Wireless,3510947.0," $29,669,960,000.00 ",30000," $32,588,090,000.00 ",30000,On Zayo Network,16
-15,Acct-000002,Telecommunications,National Carrier/ISP,3344939.0," $25,378,360,491.80 ",43350," $25,049,031,785.71 ",43350,On Zayo Network,68
-17,Acct-000053,Telecommunications,National Carrier/ISP,2950069.0," $16,503,800,000.00 ",43000," $16,503,800,000.00 ",43000,On Zayo Network,45
-20,Acct-000009,Telecommunications,National Carrier/ISP,1915889.0," $5,374,799,000.00 ",12626," $5,315,606,600.00 ",12326,On Zayo Network,81
-21,Acct-000236,Telecommunications,Wireless,1647409.0," $135,350,522,000.00 ",281450," $135,350,522,000.00 ",281450,On Zayo Network,8
-23,Acct-000034,Telecommunications,National Carrier/ISP,1541759.0, $-   ,0, $-   ,0,On Zayo Network,33
-24,Acct-000007,Telecommunications,PTT,1334080.0, $-   ,0, $-   ,0,On Zayo Network,24
-26,Acct-000072,Telecommunications,National Carrier/ISP,1307326.0," $109,048,721.12 ",431," $207,078,004.35 ",475,On Zayo Network,48
-28,Acct-000038,Media & Content,Internet Content & Software,1183550.0," $69,139,858,000.00 ",61814," $69,139,858,000.00 ",61814,On Zayo Network,29
-29,Acct-000167,Telecommunications,National Carrier/ISP,1156722.8, $-   ,0, $-   ,0,On Zayo Network,9
-30,Acct-000579,Telecommunications,National Carrier/ISP,1123818.23, $-   ,0, $-   ,0,On Zayo Network,6
-31,Acct-000058,Media & Content,Internet Content & Software,967729.0," $98,659,532,000.00 ",230800," $98,659,532,000.00 ",230800,On Zayo Network,15
-33,Acct-000039,Media & Content,Cable & Satellite,881860.0," $8,993,188.00 ",23800," $8,993,188,000.00 ",23800,On Zayo Network,14
-34,Acct-000074,Media & Content,Cable & Satellite,827848.0," $63,410,550,000.00 ",139000," $68,698,220,000.00 ",141000,On Zayo Network,15
-36,Acct-000091,Telecommunications,Regional Carrier/ISP,810174.0," $576,443.62 ",2," $518,799.26 ",2,On Zayo Network,9
-38,Acct-000303,Telecommunications,PTT,731810.0," $33,857,909.89 ",170," $44,939,095.97 ",170,On Zayo Network,1
-39,Acct-000022,Finance,Finance - Other,724132.0," $4,412,352,774.07 ",15000," $3,359,397,269.33 ",15000,On Zayo Network,2
-40,Acct-000011,Media & Content,Internet Content & Software,683378.0," $198,819,158,000.00 ",116000," $198,819,158,000.00 ",116000,On Zayo Network,17
-44,Acct-000116,Telecommunications,RLEC,646154.0," $5,141,072,000.00 ",19200," $5,141,072,000.00 ",19200,On Zayo Network,11
-45,Acct-001248,Media & Content,Internet Content & Software,574813.0," $1,810,691,828.00 ",5106," $2,026,047,056.00 ",6084,On Zayo Network,1
-47,Acct-000056,Finance,Finance - Other,539570.0," $87,756,882,000.00 ",242000," $85,797,632,000.00 ",213000,On Zayo Network,15
-48,Acct-000014,Telecommunications,National Carrier/ISP,523970.98, $-   ,0, $-   ,0,On Zayo Network,2
-50,Acct-000008,Telecommunications,RLEC,520611.0," $1,297,946,553.85 ",3485," $427,264,020.00 ",3485,On Zayo Network,9
-53,Acct-000333,Finance,Finance - Other,518767.0," $94,138,044,000.00 ",241359," $93,127,532,000.00 ",234598,On Zayo Network,4
-54,Acct-000312,IT Infrastructure,Colo/Hosting,515234.0," $991,343,260.42 ",2300," $945,308,840.44 ",2300,On Zayo Network,10
-56,Acct-000070,Media & Content,Media,504108.0," $91,596,133.33 ",865," $90,680,171.51 ",865,On Zayo Network,3
+Account ID,Industry,Vertical, Total BRR , AnnualRevenue ,NumberOfEmployees,On Zayo Network Status,Total Buildings
+Acct-000009,Telecommunications,National Carrier/ISP,1915889.0," $5,374,799,000.00 ",12626,On Zayo Network,81
+Acct-000013,Telecommunications,National Carrier/ISP,5117529.0," $10,779,768,901.96 ",40000,On Zayo Network,74
+Acct-000002,Telecommunications,National Carrier/ISP,3344939.0," $25,378,360,491.80 ",43350,On Zayo Network,68
+Acct-000072,Telecommunications,National Carrier/ISP,1307326.0," $109,048,721.12 ",431,On Zayo Network,48
+Acct-000053,Telecommunications,National Carrier/ISP,2950069.0," $16,503,800,000.00 ",43000,On Zayo Network,45
+Acct-000273,Telecommunications,Wireless,6084906.0," $248,747,365.62 ",397,On Zayo Network,38
+Acct-000034,Telecommunications,National Carrier/ISP,1541759.0, $-   ,0,On Zayo Network,33
+Acct-000025,Telecommunications,National Carrier/ISP,4234871.0," $6,248,394,000.00 ",10040,On Zayo Network,32
+Acct-000038,Media & Content,Internet Content & Software,1183550.0," $69,139,858,000.00 ",61814,On Zayo Network,29
+Acct-000007,Telecommunications,PTT,1334080.0, $-   ,0,On Zayo Network,24
+Acct-000011,Media & Content,Internet Content & Software,683378.0," $198,819,158,000.00 ",116000,On Zayo Network,17
+Acct-000004,Telecommunications,Wireless,3510947.0," $29,669,960,000.00 ",30000,On Zayo Network,16
+Acct-000074,Media & Content,Cable & Satellite,827848.0," $63,410,550,000.00 ",139000,On Zayo Network,15
+Acct-000058,Media & Content,Internet Content & Software,967729.0," $98,659,532,000.00 ",230800,On Zayo Network,15
+Acct-000056,Finance,Finance - Other,539570.0," $87,756,882,000.00 ",242000,On Zayo Network,15
+Acct-000039,Media & Content,Cable & Satellite,881860.0," $8,993,188.00 ",23800,On Zayo Network,14
+Acct-000036,Telecommunications,Wireless,5105015.0," $9,277,969,886.09 ",34518,On Zayo Network,13
+Acct-000116,Telecommunications,RLEC,646154.0," $5,141,072,000.00 ",19200,On Zayo Network,11
+Acct-000312,IT Infrastructure,Colo/Hosting,515234.0," $991,343,260.42 ",2300,On Zayo Network,10
+Acct-000167,Telecommunications,National Carrier/ISP,1156722.8, $-   ,0,On Zayo Network,9
+Acct-000008,Telecommunications,RLEC,520611.0," $1,297,946,553.85 ",3485,On Zayo Network,9
+Acct-000091,Telecommunications,Regional Carrier/ISP,810174.0," $576,443.62 ",2,On Zayo Network,9
+Acct-000236,Telecommunications,Wireless,1647409.0," $135,350,522,000.00 ",281450,On Zayo Network,8
+Acct-000579,Telecommunications,National Carrier/ISP,1123818.23, $-   ,0,On Zayo Network,6
+Acct-000333,Finance,Finance - Other,518767.0," $94,138,044,000.00 ",241359,On Zayo Network,4
+Acct-000070,Media & Content,Media,504108.0," $91,596,133.33 ",865,On Zayo Network,3
+Acct-000022,Finance,Finance - Other,724132.0," $4,412,352,774.07 ",15000,On Zayo Network,2
+Acct-000014,Telecommunications,National Carrier/ISP,523970.98, $-   ,0,On Zayo Network,2
+Acct-000303,Telecommunications,PTT,731810.0," $33,857,909.89 ",170,On Zayo Network,1
+Acct-001248,Media & Content,Internet Content & Software,574813.0," $1,810,691,828.00 ",5106,On Zayo Network,1
