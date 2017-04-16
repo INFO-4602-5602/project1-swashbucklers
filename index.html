@@ -258,32 +258,32 @@
 					if (obj['On Zayo Network Status'] === 'Not on Zayo Network') {
 						marker = L.marker([obj['Latitude'], obj['Longitude']], {
 							icon: redMarker
-						}).bindPopup("<b>Network Proximity:</b> " + obj['Network Proximity']
-					+ "<br><b>Postal Code:</b> " + obj['Postal Code']
-					+ "<br><b>Net Classification:</b> " + obj['Net Classification']
-					+ "<br><b>Type:</b> " + obj['Type'] + " (Opportunity)"
-					+ "<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
-				);
+						}).bindPopup("<b>Network Proximity:</b> " + obj['Network Proximity'] +
+							"<br><b>Postal Code:</b> " + obj['Postal Code'] +
+							"<br><b>Net Classification:</b> " + obj['Net Classification'] +
+							"<br><b>Type:</b> " + obj['Type'] + " (Opportunity)" +
+							"<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
+						);
 					}
 					if (obj['On Zayo Network Status'] === 'On Zayo Network') {
 						marker = L.marker([obj['Latitude'], obj['Longitude']], {
 							icon: greenMarker
-						}).bindPopup("<b>Network Proximity:</b> On Network"
-					+ "<br><b>Postal Code:</b> " + obj['Postal Code']
-					+ "<br><b>Net Classification:</b> " + obj['Net Classification']
-					+ "<br><b>Type:</b> " + obj['Type'] + " (Client)"
-					+ "<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
-				);
+						}).bindPopup("<b>Network Proximity:</b> On Network" +
+							"<br><b>Postal Code:</b> " + obj['Postal Code'] +
+							"<br><b>Net Classification:</b> " + obj['Net Classification'] +
+							"<br><b>Type:</b> " + obj['Type'] + " (Client)" +
+							"<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
+						);
 					}
 					if (obj['On Zayo Network Status'] === 'Build in Progress') {
 						marker = L.marker([obj['Latitude'], obj['Longitude']], {
 							icon: yellowMarker
-						}).bindPopup("<b>Network Proximity:</b> " + obj['Network Proximity']
-						+ "<br><b>Postal Code:</b> " + obj['Postal Code']
-						+ "<br><b>Net Classification:</b> " + obj['Net Classification']
-						+ "<br><b>Type:</b> " + obj['Type'] + " (Build in Progress)"
-						+ "<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
-					);
+						}).bindPopup("<b>Network Proximity:</b> " + obj['Network Proximity'] +
+							"<br><b>Postal Code:</b> " + obj['Postal Code'] +
+							"<br><b>Net Classification:</b> " + obj['Net Classification'] +
+							"<br><b>Type:</b> " + obj['Type'] + " (Build in Progress)" +
+							"<br><b>Est. Build Cost:</b> " + obj[' Estimated Build Cost ']
+						);
 					}
 					markerList.push(marker);
 				}
