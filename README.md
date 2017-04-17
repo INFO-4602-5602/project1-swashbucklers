@@ -28,7 +28,7 @@ As for non-spatial, we ended up developing 2 such visualizations (vis 3 and 4). 
 ---
 Naif **Alharthi**: Pruned and analyzed original data files to spot duplicate entries
 
-Aadish **Gupta**: Built the dashboard and visualizations from ground-up using Leaflet.js, D3.js and Highcharts.js
+Aadish **Gupta**: Built the dashboard and visualizations from ground-up using Leaflet.js, D3.js, Highcharts.js and DataTables.js
 
 Nehal **Kamat**: Pruned and analyzed data in Jupyter Notebooks using Python in order to create csv files to be used for visualization. Also co-wrote the README file along with Keerthi Pai.
 
@@ -47,6 +47,11 @@ Jupyter Notebooks: In order to view the data analysis, you must have python and 
 ---
 DASHBOARD: Our project is presented in the form of a dashboard which we think provides a clean and intuitive interface for users to view the visualizations. We have kept the interactions pretty and abstraction level high so that users can get to the information they need with a few clicks/keystrokes. Besides this, we have also managed to put up 4 visualizations with scope for re-use and extension.
 
-GENERALIZATION: scripts in Jupyter Notebook can be run on new data that will perform the necesssary pruning and output the required csv files for visualizations
+GENERALIZATION: Scripts in Jupyter Notebook can be run on new data that will perform the necesssary pruning and output the required csv files for visualizations. These scripts are also used to handle missing values.
 
 BIG DATA: Visualizations can handle loads upto 50,000 points efficiently
+
+STYLING: Bootstrap themed sttyling is used to keep user experience consistent across all visualizations. Fixed Nav-Bar is used to make other visualizations on the page always accessible to the user, single click away.
+
+OVERVIEW + DETAIL: For first and second visualization overview is provided by default in form of map and barchart. On click of these elements detailed data is provided for further exploration while overview is still present.
+
