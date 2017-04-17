@@ -41,7 +41,7 @@ Keerthi **Pai**: Analyzed data using MySQL to provide valuable insights into wha
 ---
 Plain and simple: Start your local web server using your favorite tool (npm, python, etc.) and navigate to localhost:8000 and open the index.html file
 
-Jupyter Notebooks: In order to view the data analysis, you must have python and python-pip installed on your machine. For Linux users, download [Anaconda]https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh and install it, then proceed to run ```jupyter notebook``` in your terminal and navigate to the notebooks folder and open up the ```explore-zayo-data.ipynb``` file.
+Jupyter Notebooks: In order to view the data analysis, you must have python and python-pip installed on your machine. For Linux users, download [Anaconda](https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh) and install it, then proceed to run ```jupyter notebook``` in your terminal and navigate to the notebooks folder and open up the ```explore-zayo-data.ipynb``` file.
 
 ### Above and Beyond:
 ---
