@@ -39,19 +39,20 @@ Keerthi **Pai**: Analyzed data using MySQL to provide valuable insights into wha
 
 ### How To Run:
 ---
-Plain and simple: Start your local web server using your favorite tool (npm, python, etc.) and navigate to localhost:8000 and open the index.html file
+Start your local web server using your favorite tool (npm, python, etc.) and navigate to ```localhost:8000``` and open the ```index.html``` file. On Linux, if using Python 3+, use ```python3 -m http.server``` from inside the project directory to start a local web server on ```localhost:8000```.
 
-Jupyter Notebooks: In order to view the data analysis, you must have python and python-pip installed on your machine. For Linux users, download [Anaconda](https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh) and install it, then proceed to run ```jupyter notebook``` in your terminal and navigate to the notebooks folder and open up the ```explore-zayo-data.ipynb``` file.
+In order to **view** the data analysis, in GitHub navigate to the notebooks folder in the project directory and click on ```explore-zayo-data.ipynb```.
+
+In order to **run** the analysis by yourself, clone the repository to your local machine. You must have python and python-pip installed on your machine. For Linux users, download [Anaconda](https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh) and install it, then proceed to run ```jupyter notebook``` in your terminal and navigate to the notebooks folder and open up the ```explore-zayo-data.ipynb``` file.
 
 ### Above and Beyond:
 ---
 DASHBOARD: Our project is presented in the form of a dashboard which we think provides a clean and intuitive interface for users to view the visualizations. We have kept the interactions pretty and abstraction level high so that users can get to the information they need with a few clicks/keystrokes. Besides this, we have also managed to put up 4 visualizations with scope for re-use and extension.
 
-GENERALIZATION: Scripts in Jupyter Notebook can be run on new data that will perform the necesssary pruning and output the required csv files for visualizations. These scripts are also used to handle missing values.
+GENERALIZATION: Scripts in Jupyter Notebook can be run on new data that will perform the necessary pruning and output the required csv files for visualizations. These scripts are also used to handle missing values.
 
-BIG DATA: Visualizations can handle loads upto 50,000 points efficiently
+BIG DATA: Visualizations can handle loads up to 50,000 points efficiently
 
-STYLING: Bootstrap themed sttyling is used to keep user experience consistent across all visualizations. Fixed Nav-Bar is used to make other visualizations on the page always accessible to the user, single click away.
+STYLING: Bootstrap themed styling is used to keep user experience consistent across all visualizations. Fixed Nav-Bar is used to make other visualizations on the page always accessible to the user, single click away.
 
-OVERVIEW + DETAIL: For first and second visualization overview is provided by default in form of map and barchart. On click of these elements detailed data is provided for further exploration while overview is still present.
-
+OVERVIEW + DETAIL: For first and second visualization overview is provided by default in form of map and bar-chart. On click of these elements detailed data is provided for further exploration while overview is still present.

@@ -1,0 +1,314 @@
+Account ID,Industry,Vertical, Total BRR ,# Buildings on Net,# Buildings not on Net
+Acct-000273,Telecommunications,Wireless,6084906.0,970.0,45
+Acct-000008,Telecommunications,RLEC,520611.0,704.0,97
+Acct-000004,Telecommunications,Wireless,3510947.0,446.0,213
+Acct-000122,Telecommunications,National Carrier/ISP,314529.0,367.0,29
+Acct-000700,Telecommunications,Wireless,55526.0,321.0,2188
+Acct-000167,Telecommunications,National Carrier/ISP,1156722.8,277.0,3
+Acct-001366,Telecommunications,Wireless,7781.0,261.0,1463
+Acct-000025,Telecommunications,National Carrier/ISP,4234871.0,228.0,32
+Acct-000013,Telecommunications,National Carrier/ISP,5117529.0,188.0,17
+Acct-000579,Telecommunications,National Carrier/ISP,1123818.23,162.0,2
+Acct-000038,Media & Content,Internet Content & Software,1183550.0,156.0,318
+Acct-000072,Telecommunications,National Carrier/ISP,1307326.0,144.0,3
+Acct-000002,Telecommunications,National Carrier/ISP,3344939.0,138.0,588
+Acct-000053,Telecommunications,National Carrier/ISP,2950069.0,96.0,17
+Acct-001417,Telecommunications,National Carrier/ISP,1077530.52,90.0,2
+Acct-000009,Telecommunications,National Carrier/ISP,1915889.0,88.0,25
+Acct-000055,Telecommunications,National Carrier/ISP,338015.0,82.0,157
+Acct-000036,Telecommunications,Wireless,5105015.0,75.0,587
+Acct-001068,Government,State/Local Government,108744.0,58.0,1
+Acct-000056,Finance,Finance - Other,539570.0,54.0,252
+Acct-000403,Telecommunications,Regional Carrier/ISP,67868.0,42.0,1
+Acct-000209,Telecommunications,Regional Carrier/ISP,40009.0,42.0,1
+Acct-000034,Telecommunications,National Carrier/ISP,1541759.0,38.0,1
+Acct-000730,Finance,Finance - Other,199662.0,36.0,643
+Acct-000790,Telecommunications,Reseller,38475.24,33.0,9
+Acct-000236,Telecommunications,Wireless,1647409.0,32.0,12
+Acct-000039,Media & Content,Cable & Satellite,881860.0,30.0,6
+Acct-001363,Healthcare,Hospital/Clinic,149449.0,27.0,98
+Acct-000062,IT Infrastructure,Colo/Hosting,255295.0,25.0,4
+Acct-001233,Research & Education,K-12 Education,19000.0,25.0,3
+Acct-000312,IT Infrastructure,Colo/Hosting,515234.0,22.0,2
+Acct-000093,Telecommunications,Reseller,230445.0,22.0,2
+Acct-000448,Telecommunications,Regional Carrier/ISP,21182.0,22.0,5
+Acct-000224,Telecommunications,Regional Carrier/ISP,468014.08,20.0,8
+Acct-000074,Media & Content,Cable & Satellite,827848.0,19.0,4
+Acct-000011,Media & Content,Internet Content & Software,683378.0,18.0,24
+Acct-001622,Research & Education,K-12 Education,35308.0,18.0,135
+Acct-001296,Healthcare,Hospital/Clinic,31930.62,18.0,52
+Acct-001400,Media & Content,Media,67443.0,17.0,1
+Acct-000148,Telecommunications,Regional Carrier/ISP,60135.0,16.0,1
+Acct-001364,Healthcare,Hospital/Clinic,28715.88,16.0,228
+Acct-000201,Other Industry,Retail,387865.0,15.0,261
+Acct-000435,Telecommunications,Regional Carrier/ISP,420878.0,15.0,2
+Acct-001177,Healthcare,Hospital/Clinic,48382.36,15.0,30
+Acct-000682,Telecommunications,Regional Carrier/ISP,13268.0,14.0,1
+Acct-000811,Media & Content,Internet Content & Software,417840.0,14.0,1
+Acct-000516,Media & Content,Cable & Satellite,52373.1,14.0,47
+Acct-000649,Government,State/Local Government,1185.0,13.0,62
+Acct-000019,Telecommunications,National Carrier/ISP,22141.48,13.0,23
+Acct-000564,Research & Education,Higher Education,57580.0,13.0,6
+Acct-000156,Telecommunications,Reseller,139823.0,11.0,5
+Acct-000043,IT Infrastructure,Colo/Hosting,109515.0,11.0,1
+Acct-001102,Research & Education,Higher Education,17557.0,11.0,3
+Acct-000058,Media & Content,Internet Content & Software,967729.0,11.0,13
+Acct-000801,IT Infrastructure,Cloud Service Provider,323653.18,11.0,5
+Acct-000247,Other Industry,Transportation,29730.0,10.0,9
+Acct-000173,IT Infrastructure,Colo/Hosting,376472.0,10.0,1
+Acct-000296,Telecommunications,Regional Carrier/ISP,201354.0,10.0,1
+Acct-001248,Media & Content,Internet Content & Software,574813.0,10.0,3
+Acct-000060,IT Infrastructure,Colo/Hosting,369444.0,10.0,1
+Acct-001116,Other Industry,Retail,47610.0,9.0,23
+Acct-001361,Other Industry,Transportation,2330.0,9.0,62
+Acct-001643,Other Industry,Retail,43210.0,9.0,15
+Acct-000656,Telecommunications,Regional Carrier/ISP,35369.0,9.0,9
+Acct-000292,Finance,Finance - Other,6593.12,9.0,55
+Acct-001054,Media & Content,Internet Content & Software,242286.0,9.0,14
+Acct-000094,Telecommunications,RLEC,748.0,9.0,1
+Acct-000470,Telecommunications,National Carrier/ISP,180941.0,9.0,3
+Acct-000175,Telecommunications,Regional Carrier/ISP,226920.0,9.0,1
+Acct-000067,Telecommunications,Regional Carrier/ISP,50816.0,8.0,2
+Acct-000604,Finance,Finance - Other,26159.0,8.0,1
+Acct-000584,Telecommunications,National Carrier/ISP,62025.0,8.0,3
+Acct-001487,Telecommunications,National Carrier/ISP,78186.38,8.0,1
+Acct-001155,Healthcare,Hospital/Clinic,56494.0,8.0,2
+Acct-000286,Telecommunications,Regional Carrier/ISP,16802.0,8.0,1
+Acct-001125,Professional Services,Commercial Systems Integrator,195361.0,8.0,53
+Acct-001360,Healthcare,Healthcare - Other,7065.16,8.0,1
+Acct-001448,Telecommunications,National Carrier/ISP,34670.0,8.0,1
+Acct-000745,Other Industry,Transportation,40357.0,7.0,111
+Acct-000735,Energy & Manufacturing,Oil & Gas,45777.0,7.0,2
+Acct-001369,Healthcare,Hospital/Clinic,9956.0,7.0,90
+Acct-000523,Other Industry,Transportation,6984.0,7.0,25
+Acct-002436,Other Industry,Hospitality,21737.0,7.0,36
+Acct-000280,Media & Content,Media,40694.0,7.0,1
+Acct-000723,Transportation & Logistics,Airlines,48682.0,7.0,2
+Acct-001206,Research & Education,Higher Education,3006.0,7.0,1
+Acct-000271,IT Infrastructure,Cloud Service Provider,408.0,7.0,3
+Acct-000544,Finance,Finance - Other,289600.0,7.0,7
+Acct-000333,Finance,Finance - Other,518767.0,7.0,2
+Acct-000377,Media & Content,Internet Content & Software,94478.0,6.0,16
+Acct-000946,Energy & Manufacturing,Manufacturing - Other,21728.0,6.0,4
+Acct-000246,IT Infrastructure,Cloud Service Provider,98448.0,6.0,1
+Acct-000183,Finance,Finance - Other,88182.0,6.0,1
+Acct-001509,Media & Content,Media,77381.0,6.0,2
+Acct-000511,Healthcare,Hospital/Clinic,111964.0,6.0,82
+Acct-001260,Other Industry,Retail,267706.13,6.0,19
+Acct-000949,IT Infrastructure,Cloud Service Provider,227329.0,6.0,11
+Acct-001059,Other Industry,Real Estate / Construction,7745.0,6.0,7
+Acct-000752,Energy & Manufacturing,Manufacturing - Other,4968.63,6.0,9
+Acct-000142,IT Infrastructure,Cloud Service Provider,508059.0,6.0,7
+Acct-003144,Healthcare,Hospital/Clinic,44625.22,5.0,85
+Acct-000306,Professional Services,Consulting / Other Professional Services,21443.0,5.0,1
+Acct-000385,Telecommunications,Regional Carrier/ISP,9348.34,5.0,4
+Acct-000480,Finance,Finance - Other,326673.0,5.0,1
+Acct-002482,Other Industry,Retail,8145.0,5.0,1
+Acct-000560,Healthcare,Healthcare - Other,41209.0,5.0,9
+Acct-000314,Media & Content,Media,138723.0,5.0,4
+Acct-000488,Telecommunications,National Carrier/ISP,145210.0,5.0,1
+Acct-000141,IT Infrastructure,Cloud Service Provider,149155.0,5.0,4
+Acct-001386,Government,Federal Government,32663.02,5.0,8
+Acct-000185,Finance,Finance - Other,7756.0,5.0,2
+Acct-000364,Media & Content,Internet Content & Software,162567.0,5.0,3
+Acct-000593,Professional Services,Consulting / Other Professional Services,19255.4,5.0,1
+Acct-000182,IT Infrastructure,Cloud Service Provider,29727.0,5.0,1
+Acct-002263,Healthcare,Pharmaceuticals / BioTech,62049.0,5.0,18
+Acct-000467,Healthcare,Healthcare - Other,2883.0,5.0,1
+Acct-001272,IT Infrastructure,Cloud Service Provider,13988.0,5.0,12
+Acct-001019,Finance,Finance - Other,508424.0,5.0,7
+Acct-000820,Healthcare,Hospital/Clinic,55924.0,5.0,23
+Acct-000933,Media & Content,Internet Content & Software,70927.0,5.0,4
+Acct-000293,Media & Content,Internet Content & Software,57524.0,5.0,1
+Acct-001020,Healthcare,Health Insurance,26252.13,4.0,5
+Acct-000575,Media & Content,Internet Content & Software,6289.0,4.0,2
+Acct-001367,Professional Services,Legal,25695.0,4.0,9
+Acct-002416,Other Industry,Retail,10512.0,4.0,1
+Acct-000487,Media & Content,AdTech,270546.0,4.0,1
+Acct-000290,Government,State/Local Government,3790.0,4.0,6
+Acct-002262,Media & Content,Media,53237.0,4.0,4
+Acct-000021,IT Infrastructure,Cloud Service Provider,32400.0,4.0,1
+Acct-000262,Other Industry,Real Estate / Construction,765.0,4.0,3
+Acct-001076,IT Infrastructure,Cloud Service Provider,72370.0,4.0,2
+Acct-000557,Professional Services,Consulting / Other Professional Services,72858.0,4.0,7
+Acct-000643,Telecommunications,National Carrier/ISP,73046.0,4.0,5
+Acct-000354,Media & Content,Media,67652.0,4.0,3
+Acct-002489,Research & Education,K-12 Education,6800.0,4.0,5
+Acct-000615,Telecommunications,PTT,46985.0,4.0,1
+Acct-000517,Professional Services,Consulting / Other Professional Services,18792.19,4.0,1
+Acct-003500,Research & Education,K-12 Education,9176.0,4.0,46
+Acct-000180,Energy & Manufacturing,Manufacturing - Other,5097.0,4.0,1
+Acct-000864,Telecommunications,National Carrier/ISP,5148.0,4.0,3
+Acct-001077,Finance,Finance - Other,9369.14,4.0,1
+Acct-003083,Other Industry,Telecommunications Equipment Provider,1060.0,4.0,34
+Acct-001939,Finance,Finance - Other,23335.0,3.0,2
+Acct-001415,Media & Content,Internet Content & Software,20593.92,3.0,1
+Acct-002266,Media & Content,Internet Content & Software,9182.0,3.0,2
+Acct-000304,Media & Content,Internet Content & Software,205293.0,3.0,3
+Acct-000108,Media & Content,Internet Content & Software,15423.0,3.0,1
+Acct-001782,Professional Services,Consulting / Other Professional Services,14386.0,3.0,1
+Acct-000017,Telecommunications,PTT,291264.0,3.0,1
+Acct-001373,Media & Content,Internet Content & Software,9478.0,3.0,2
+Acct-001614,Energy & Manufacturing,Manufacturing - Other,22141.0,3.0,1
+Acct-001395,Media & Content,AdTech,15982.0,3.0,1
+Acct-003307,Research & Education,K-12 Education,9176.0,3.0,36
+Acct-000528,Other Industry,Accelerator,8094.0,3.0,1
+Acct-002490,Research & Education,Higher Education,23326.0,3.0,1
+Acct-001620,Telecommunications,Regional Carrier/ISP,2778.0,3.0,1
+Acct-002070,Healthcare,Healthcare - Other,48578.4,3.0,22
+Acct-002546,Government,Federal Government,1085.0,3.0,7
+Acct-002530,Other Industry,Hospitality,2286.0,3.0,184
+Acct-000975,Energy & Manufacturing,Oil & Gas,4054.2,3.0,1
+Acct-002437,Other Industry,Hospitality,2266.0,3.0,8
+Acct-000057,Telecommunications,National Carrier/ISP,86526.0,3.0,2
+Acct-002254,Professional Services,Consulting / Other Professional Services,2187.0,3.0,5
+Acct-001027,Finance,Finance - Other,47642.0,3.0,1
+Acct-002451,Energy & Manufacturing,Oil & Gas,47106.0,3.0,2
+Acct-000536,Professional Services,Commercial Systems Integrator,84316.0,3.0,2
+Acct-001934,Research & Education,Higher Education,5535.9,3.0,1
+Acct-000200,IT Infrastructure,Colo/Hosting,82809.0,3.0,1
+Acct-001631,Research & Education,K-12 Education,6219.0,3.0,17
+Acct-001421,Government,Systems Integrators - Government,68074.0,3.0,24
+Acct-000816,Finance,Finance - Other,6627.0,3.0,1
+Acct-001295,Research & Education,K-12 Education,3000.0,3.0,21
+Acct-000326,Telecommunications,PTT,141649.0,3.0,1
+Acct-000193,Energy & Manufacturing,Manufacturing - Other,2725.38,2.0,1
+Acct-003101,Media & Content,Internet Content & Software,9395.0,2.0,1
+Acct-002021,Media/Content,Internet Content & Software,698.0,2.0,1
+Acct-000359,Media & Content,Media,10188.0,2.0,1
+Acct-000154,Finance,Finance - Other,11279.0,2.0,2
+Acct-000578,IT Infrastructure,Cloud Service Provider,10060.0,2.0,1
+Acct-003242,Media & Content,Internet Content & Software,13022.0,2.0,1
+Acct-003150,Research & Education,K-12 Education,3568.25,2.0,46
+Acct-000941,Professional Services,Consulting / Other Professional Services,2400.0,2.0,1
+Acct-000203,Research & Education,K-12 Education,7175.86,2.0,3
+Acct-000548,Other Industry,Real Estate / Construction,3670.0,2.0,1
+Acct-001778,,,3680.0,2.0,2
+Acct-001941,IT Infrastructure,Cloud Service Provider,855.0,2.0,15
+Acct-002467,Other Industry,Hospitality,2050.0,2.0,17
+Acct-000834,Telecommunications,Reseller,1885.66,2.0,1
+Acct-001467,Other Industry,Transportation,5341.0,2.0,1
+Acct-002267,Media & Content,Internet Content & Software,1162.23,2.0,2
+Acct-000196,Media & Content,Internet Content & Software,8502.0,2.0,1
+Acct-002556,Healthcare,Healthcare - Other,5996.0,2.0,1
+Acct-001630,Research & Education,K-12 Education,6015.05,2.0,46
+Acct-000587,Other Industry,Real Estate / Construction,969.0,2.0,1
+Acct-002170,Other Industry,Real Estate / Construction,7990.0,2.0,6
+Acct-001351,Research & Education,K-12 Education,905.2,2.0,3
+Acct-001136,Media & Content,Internet Content & Software,13906.0,2.0,3
+Acct-002406,Energy & Manufacturing,Manufacturing - Other,64.95,2.0,9
+Acct-000992,Media & Content,Internet Content & Software,14298.0,2.0,1
+Acct-000704,Telecommunications,Reseller,17848.0,2.0,1
+Acct-002572,Healthcare,Healthcare - Other,36433.06,2.0,1
+Acct-001230,Research & Education,Higher Education,41216.9,2.0,1
+Acct-000519,Media & Content,Media,54071.0,2.0,1
+Acct-000503,Other Industry,Retail,31558.46,2.0,1
+Acct-001140,Media & Content,Media,30000.0,2.0,1
+Acct-000194,Healthcare,Healthcare - Other,65917.0,2.0,2
+Acct-002468,Other Industry,Non-Healthcare Insurance,24984.0,2.0,9
+Acct-001215,Professional Services,Consulting / Other Professional Services,80599.24,2.0,2
+Acct-002055,Government,Federal Government,87243.0,2.0,3
+Acct-000706,Other Industry,Retail,37347.0,2.0,21
+Acct-000651,Media & Content,Gaming/eSports,98654.0,2.0,1
+Acct-001866,Healthcare,Healthcare - Other,106000.0,2.0,2
+Acct-000553,Healthcare,Healthcare - Other,107992.0,2.0,1
+Acct-001009,Media & Content,Media,96243.0,2.0,2
+Acct-000595,Other Industry,Retail,17833.0,2.0,17
+Acct-003319,Media & Content,Internet Content & Software,15093.0,2.0,3
+Acct-001142,Government,Federal Research,564728.0,2.0,12
+Acct-000357,Telecommunications,Regional Carrier/ISP,115243.4,2.0,2
+Acct-001153,Media & Content,Cable & Satellite,327904.0,2.0,1
+Acct-000657,IT Infrastructure,Cloud Service Provider,156091.0,2.0,1
+Acct-000857,Professional Services,Commercial Systems Integrator,129084.0,2.0,2
+Acct-001322,Finance,Finance - Other,150144.0,2.0,6
+Acct-000846,Government,Federal Research,39457.0,1.0,2
+Acct-002506,Media & Content,Internet Content & Software,5625.0,1.0,1
+Acct-001263,Media & Content,AdTech,42611.0,1.0,2
+Acct-001946,Other Industry,Telecommunications Equipment Provider,5290.65,1.0,7
+Acct-001827,Other Industry,Real Estate / Construction,5052.0,1.0,1
+Acct-003079,Media & Content,Internet Content & Software,3364.35,1.0,2
+Acct-001205,Other Industry,Retail,139215.57,1.0,1
+Acct-002389,Government,State/Local Government,2014.0,1.0,2
+Acct-003329,Other Industry,Retail,70071.0,1.0,24
+Acct-001493,Finance,Finance - Other,75100.0,1.0,1
+Acct-001243,Research & Education,K-12 Education,2863.0,1.0,13
+Acct-000398,Media & Content,Internet Content & Software,118909.0,1.0,6
+Acct-003082,Media & Content,Internet Content & Software,2447.0,1.0,2
+Acct-001167,Professional Services,Consulting / Other Professional Services,1131.44,1.0,2
+Acct-001357,Finance,Finance - Other,108644.0,1.0,1
+Acct-001450,Other Industry,Retail,1606.0,1.0,1
+Acct-003298,Media & Content,Internet Content & Software,2034.0,1.0,1
+Acct-002253,Professional Services,Consulting / Other Professional Services,6117.02,1.0,3
+Acct-002418,Finance,Asset Management / Hedge Fund,49301.06,1.0,1
+Acct-002062,Professional Services,Consulting / Other Professional Services,8811.0,1.0,1
+Acct-003253,Energy & Manufacturing,Manufacturing - Other,22888.0,1.0,12
+Acct-000010,Media & Content,Cable & Satellite,36652.26,1.0,1
+Acct-001963,Professional Services,Consulting / Other Professional Services,8487.0,1.0,1
+Acct-002447,Professional Services,Commercial Systems Integrator,6412.0,1.0,1
+Acct-003335,Energy & Manufacturing,Manufacturing - Other,7637.91,1.0,1
+Acct-000692,Telecommunications,Regional Carrier/ISP,12629.61,1.0,3
+Acct-001261,Telecommunications,Regional Carrier/ISP,8183.29,1.0,1
+Acct-003262,Energy & Manufacturing,Utilities,18710.0,1.0,2
+Acct-002197,Finance,Finance - Other,20310.0,1.0,1
+Acct-002441,Other Industry,Retail,17474.0,1.0,16
+Acct-001514,Healthcare,Healthcare - Other,7242.0,1.0,2
+Acct-001507,Energy & Manufacturing,Oil & Gas,15471.0,1.0,1
+Acct-003590,Other Industry,Non-Healthcare Insurance,21043.0,0.0,1
+Acct-003461,Energy & Manufacturing,Manufacturing - Other,1731.13,0.0,6
+Acct-001156,Media & Content,Media,2141.0,0.0,1
+Acct-003068,Energy & Manufacturing,Manufacturing - Other,107442.0,0.0,2
+Acct-003246,Other Industry,Telecommunications Equipment Provider,1595.2,0.0,4
+Acct-000619,Finance,Finance - Other,22215.0,0.0,2
+Acct-003465,Healthcare,Healthcare - Other,2200.0,0.0,1
+Acct-003513,Media & Content,Internet Content & Software,22584.0,0.0,1
+Acct-003507,Energy & Manufacturing,Oil & Gas,9487.0,0.0,1
+Acct-003548,Telecommunications,Wireless,37047.0,0.0,2
+Acct-003464,Telecommunications,Regional Carrier/ISP,1490.36,0.0,1
+Acct-003383,Energy & Manufacturing,Manufacturing - Other,10636.0,0.0,1
+Acct-000722,Media & Content,Internet Content & Software,13106.44,0.0,2
+Acct-003348,Finance,Insurance - Non-Healthcare,547386.09,0.0,1
+Acct-003206,Other Industry,Telecommunications Equipment Provider,714.0,0.0,1
+Acct-000023,Other Industry,Transportation,14975.0,0.0,2
+Acct-001896,Telecommunications,PTT,12644.0,0.0,1
+Acct-003471,Media & Content,Internet Content & Software,10790.0,0.0,1
+Acct-003320,Professional Services,Consulting / Other Professional Services,1020.0,0.0,1
+Acct-003498,Telecommunications,Regional Carrier/ISP,1474.2,0.0,1
+Acct-001128,Healthcare,Healthcare,121100.0,0.0,7
+Acct-003480,Energy & Manufacturing,Manufacturing - Other,17413.2,0.0,1
+Acct-003649,Healthcare,Health Insurance,17781.0,0.0,1
+Acct-000732,Energy & Manufacturing,Manufacturing - Other,1200.0,0.0,1
+Acct-003402,Professional Services,Consulting / Other Professional Services,1300.0,0.0,1
+Acct-003399,Finance,Finance - Other,98339.0,0.0,1
+Acct-003540,Energy & Manufacturing,Manufacturing - Other,1400.0,0.0,1
+Acct-003322,Media & Content,Media,2619.21,0.0,2
+Acct-003379,Media & Content,Internet Content & Software,2656.0,0.0,2
+Acct-003467,Media & Content,AdTech,4151.0,0.0,1
+Acct-002486,Media & Content,Media,39441.0,0.0,3
+Acct-001014,Research & Education,Higher Education,36233.0,0.0,1
+Acct-003446,Media & Content,Media,5593.0,0.0,3
+Acct-003380,Other Industry,Retail,34375.91,0.0,2
+Acct-003569,Media & Content,Internet Content & Software,5455.0,0.0,1
+Acct-002464,Telecommunications,National Carrier/ISP,33231.0,0.0,3
+Acct-003381,Other Industry,Retail,31736.63,0.0,2
+Acct-003284,Media & Content,Internet Content & Software,5243.0,0.0,1
+Acct-001266,Professional Services,Consulting / Other Professional Services,42955.57,0.0,1
+Acct-003570,Professional Services,Legal,47646.0,0.0,1
+Acct-003524,Media & Content,Cable & Satellite,14737.0,0.0,4
+Acct-003343,Energy & Manufacturing,Manufacturing - Other,4872.0,0.0,1
+Acct-003591,Finance,Finance - Other,4588.0,0.0,1
+Acct-002551,Professional Services,Engineering,50428.49,0.0,1
+Acct-003608,Professional Services,Consulting / Other Professional Services,82665.0,0.0,1
+Acct-003562,IT Infrastructure,Cloud Service Provider,3970.0,0.0,1
+Acct-001291,Other Industry,Retail,50867.46,0.0,1
+Acct-003317,Energy & Manufacturing,Manufacturing - Other,7410.33,0.0,5
+Acct-003525,Research & Education,Higher Education,57271.0,0.0,3
+Acct-003622,Media & Content,Gaming/eSports,58137.0,0.0,3
+Acct-003530,IT Infrastructure,Cloud Service Provider,3433.16,0.0,2
+Acct-002674,Finance,Finance - Other,3122.0,0.0,1
+Acct-000059,Media & Content,Media,7779.06,0.0,5
+Acct-003469,Media & Content,Media,26871.0,0.0,1
+Acct-003576,Energy & Manufacturing,Manufacturing - Other,2957.0,0.0,4
+Acct-003552,Media & Content,Internet Content & Software,24571.0,0.0,1
+Acct-003615,Government,Federal Government,23459.0,0.0,8
+Acct-001262,Telecommunications,Regional Carrier/ISP,2805.0,0.0,1
+Acct-003601,Healthcare,Pharmaceuticals / BioTech,27387.0,0.0,1
