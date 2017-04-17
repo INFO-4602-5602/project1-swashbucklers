@@ -35,3 +35,14 @@ Nehal **Kamat**: Pruned and analyzed data in Jupyter Notebooks using Python in o
 Sachin **Muralidhara**: Pruned and analyzed data in Jupyter Notebooks using Python in order to create csv files to be used for visualization.
 
 Keerthi **Pai**: Analyzed data using MySQL to provide valuable insights into what datasets to join. Also co-wrote the README with Nehal Kamat
+
+
+### How To Run:
+---
+Plain and simple: Start your local web server using your favorite tool (npm, python, etc.) and navigate to localhost:8000 and open the index.html file
+
+Jupyter Notebooks: In order to view the data analysis, you must have python and python-pip installed on your machine. For Linux users, download [Anaconda]https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh and install it, then proceed to run ```jupyter notebook``` in your terminal and navigate to the notebooks folder and open up the ```explore-zayo-data.ipynb``` file.
+
+### Above and Beyond:
+---
+Our project is presented in the form of a dashboard which we think provides a clean and intuitive interface for users to view the visualizations. We have kept the interactions pretty and abstraction level high so that users can get to the information they need with a few clicks/keystrokes. Besides this, we have also managed to put up 4 visualizations with scope for re-use and extension.
