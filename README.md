@@ -45,4 +45,8 @@ Jupyter Notebooks: In order to view the data analysis, you must have python and 
 
 ### Above and Beyond:
 ---
-Our project is presented in the form of a dashboard which we think provides a clean and intuitive interface for users to view the visualizations. We have kept the interactions pretty and abstraction level high so that users can get to the information they need with a few clicks/keystrokes. Besides this, we have also managed to put up 4 visualizations with scope for re-use and extension.
+DASHBOARD: Our project is presented in the form of a dashboard which we think provides a clean and intuitive interface for users to view the visualizations. We have kept the interactions pretty and abstraction level high so that users can get to the information they need with a few clicks/keystrokes. Besides this, we have also managed to put up 4 visualizations with scope for re-use and extension.
+
+GENERALIZATION: scripts in Jupyter Notebook can be run on new data that will perform the necesssary pruning and output the required csv files for visualizations
+
+BIG DATA: Visualizations can handle loads upto 50,000 points efficiently
