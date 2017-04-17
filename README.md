@@ -1,6 +1,6 @@
-### INSIGHTS INTO ZAYO'S NETWORK INFRASTRUCTURE
+## INSIGHTS INTO ZAYO'S NETWORK INFRASTRUCTURE
 
-#### Visualizations
+### Visualizations
 ---
 We have attempted to visualize the data in the most intuitive way possible and present it in the form of a dashboard to keep it simple for an end-user.
 
@@ -15,7 +15,7 @@ The dashboard boasts a total of 4 visualizations, each of which gives a unique p
   - For our last visualization, we used [D3](https://d3js.org/) and [DataTables](https://datatables.net/), to build a bar chart to provide some insight into Zayo's customer base. Using [Accounts](https://github.com/INFO-4602-5602/Project1/blob/master/ZayoHackathonData_Accounts.csv), [Opportunities](https://github.com/INFO-4602-5602/Project1/blob/master/ZayoHackathonData_Opportunities.csv) and [Sites](https://github.com/INFO-4602-5602/Project1/blob/master/ZayoHackathonData_Sites.csv) datasets, we rolled up the data into three categories: high-revenue generating customers (having total BRR of 500,000 or greater), potential customers (based on number of opportunities and who are not on Zayo network) and existing customers with untapped potential (based on number of buildings on/off network), which we compare accordingly in the bar chart. Clicking on any of the bars, scrolls the view in an animated fashion to data-tables which provides us more information about each category.
 
 
-#### Design Process
+### Design Process
 ---
 The dashboard is a culmination of extensive pruning and analysis of the datasets provided to us. The CPQs and Opportunities datasets in particular seemed to have quite a lot of duplicated rows which came to light while we were trying to perform inner joins on the tables. When the number of rows in the merged table seemed off by a very large margin, it took a bit of manually screening the data to find that duplicate entries exist in the origin data files. The Accounts, Buildings, CPQs, Opportunities and Sites tables each gives us certain unique information (columns) about a couple of key columns that are common to the data files mentioned above. An example of this would be using the Building ID and Account ID columns in the Buildings and CPQs file to give us a clear picture about which accounts provide the best return on investment to Zayo. Performing an inner join on Account IDs of both files gave us a renewed perspective with which we could now see the total revenue across a particular state for all the buildings associated with 'on-network' Zayo accounts across the date.
 
@@ -24,7 +24,7 @@ Given that we were to use at least 1 spatial and 1 non-spatial visualization, wh
 As for non-spatial, we ended up developing 2 such visualizations (vis 3 and 4). Vis 3 is a tree-map that displays the different industries and verticals associated with Zayo accounts. The 2 options we had in mind to visualize such data were using drill-down hierarchical bar chart or a drill down tree-map. After much deliberation we decided to go ahead with building a tree-map since it essentially provides the same function as a drill-down bar chart but is visually more appealing and has a robust implementation in the [HighCharts API](www.highcharts.com/) that works well with csv files.
 
 
-#### Each Contributor's Role
+### Each Contributor's Role
 ---
 Naif **Alharthi**: Pruned and analyzed original data files to spot duplicate entries
 
